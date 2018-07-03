@@ -73,6 +73,9 @@
      <router-link tag="div" class="tab-item" to="/checkbox">
       <span class="tab-link">checkbox</span>
     </router-link>
+    <router-link tag="div" class="tab-item" to="/number">
+      <span class="tab-link">number</span>
+    </router-link>
     <h3>你财富业务组件</h3>
     <router-link tag="div" class="tab-item" to="/moneyInput">
       <span class="tab-link">金额输入</span>

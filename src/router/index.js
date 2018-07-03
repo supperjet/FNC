@@ -33,6 +33,7 @@ import datepickerDemo1 from '../examples/datepicker-show/demo1.vue'
 import datepickerDemo2 from '../examples/datepicker-show/demo2.vue'
 import datepickerDemo3 from '../examples/datepicker-show/demo3.vue'
 import TipShow from '../examples/tip-show.vue'
+import NumberShow from '../examples/number-show.vue'
 
 // 业务
 import Amount from '../examples/amount.vue'
@@ -221,6 +222,11 @@ export default new Router({
       path: '/checkbox',
       name: 'Checkbox',
       component: Checkbox
+    },
+    {
+      path: '/number',
+      name: 'number',
+      component: NumberShow
     }
   ]
 })
