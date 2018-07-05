@@ -64,7 +64,7 @@
         left: 44.5%;
         top: 37%;
         width: 2px;
-        height: 25%;
+        height: 20%;
         border-radius: 50%/20%;
         opacity: .25;
         background-color: currentColor;

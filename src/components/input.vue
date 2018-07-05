@@ -1,9 +1,9 @@
 <template>
-  <div class="ncf-input">
+  <div class="ncf-input flex flex-align-center">
     <div class="ncf-input-prepend" v-if="$slots.prepend">
       <slot name="prepend"></slot>
     </div>
-    <div style="position:relative;display:inline-block;">
+    <div>
       <input
         class="ncf-input-field"
         :class="{'normal': scale == 'normal'}"
@@ -195,6 +195,8 @@ export default {
 }
 </script>
 <style scoped>
+@import '../common/common.css';
+
 .ncf-input {
   width: 100%;
   position: relative;
@@ -204,12 +206,6 @@ export default {
   color: #d8d8d8;
   font-size: 16px;
   line-height: 1.5;
-}
-.ncf-input .ncf-input-prepend,
-.ncf-input .ncf-input-field,
-.ncf-input .ncf-input-append {
-  display: inline-block;
-  vertical-align: middle;
 }
 .ncf-input-prepend {
   font-size: 14px;
@@ -244,7 +240,6 @@ export default {
   background-color: #eee;
 }
 .ncf-inout-clear {
-  display: block;
   width: 18px;
   height: 18px;
   background-position: center center;
@@ -254,11 +249,5 @@ export default {
 }
 .ncf-input-append {
   position: absolute;
-  right: 80px;
-  top: 50%;
-  margin-left: 5px;
-  vertical-align: middle;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
 }
 </style>

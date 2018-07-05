@@ -13,7 +13,7 @@
 </template>
 <script>
 import ncfRect from './rect.vue';
-import ncfLoading from './loading_icon.vue';
+import ncfLoading from './loading/loading_icon.vue';
 
 const COMPONENT_NAME = 'ncf-btn';
 const EVENTS = {

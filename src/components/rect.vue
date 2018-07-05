@@ -4,7 +4,6 @@
   </a>
 </template>
 <script>
-// document.body.addEventListener('touchstart', function () {});
 const COMPONENT_NAME = 'ncf-rect'
 export default {
   name: COMPONENT_NAME,
