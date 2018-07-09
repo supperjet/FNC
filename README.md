@@ -37,9 +37,9 @@ npm run build --report
 16. flex
 17. bulletin
 18. tabBar
-19. tabs(完善中)
+19. tabs
 20. dialog
-21. scroll(完善中)
+21. scroll
 22. panel(完善中)
 23. rect
 24. progressBar(完善中)
