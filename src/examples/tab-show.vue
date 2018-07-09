@@ -1,66 +1,92 @@
 <template>
-    <div class='layout'>
-        <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>
-        <div class="tab">
-            <tab-nav :default-active="activeItem" @handle-tab-item-click="changeValue">
-                <tab-nav-item :index="1">买入</tab-nav-item>
-                <tab-nav-item :index="2">买出</tab-nav-item>
-                <tab-nav-item :index="3">撤销</tab-nav-item>
-                <tab-nav-item :index="4">收益</tab-nav-item>
-            </tab-nav>
-            <tab-container :value="activeItem" :swipeable="true">
-                <tab-container-item :id="1">
-                    <cell v-for="(n, index) in 10" :key="index"></cell>
-                </tab-container-item>
-                <tab-container-item :id="2">
-                    <cell v-for="(n, index) in 8" :key="index"></cell>
-                </tab-container-item>
-                <tab-container-item :id="3">
-                    <cell v-for="(n, index) in 15" :key="index"></cell>
-                </tab-container-item>
-                <tab-container-item :id="4">
-                    <cell v-for="(n, index) in 5" :key="index"></cell>
-                </tab-container-item>
+    <div class='layout' style="text-align: center">
+        <small>可滚动tab</small>
+        <div class="tab_1">
+            <tab-nav-bar 
+                :active-item="activeItem"
+                :tab-items="tabItems"
+                @tab-item-click="changeActive"
+            >
+            </tab-nav-bar>
+            <tab-container 
+                :active-item="activeItem"
+                class="tabContainer"
+                @change-active="changeActive"
+            >
+                <tab-container-item class="item" v-for="(item, index) in tabItems" :key="index">{{item}}</tab-container-item>
             </tab-container>
         </div>
+        </br>
+        <small>不可滚动tab</small>
+        <div class="tab_2">
+            <tab-nav-bar 
+                :active-item="activeItem_s"
+                :tab-items="tabItems"
+                @tab-item-click="changeActive_s"
+            >
+            </tab-nav-bar>
+            <tab-container-simple
+                :active-item="activeItem_s"
+                class="tabContainer"
+            >
+                <tab-container-item-simple class="item" :index="0">买入</tab-container-item-simple>
+                <tab-container-item-simple class="item" :index="1">卖出</tab-container-item-simple>
+                <tab-container-item-simple class="item" :index="2">收益</tab-container-item-simple>
+                <tab-container-item-simple class="item" :index="3">提现</tab-container-item-simple>
+            </tab-container-simple>
+        </div>
+        <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>
     </div>
 </template>
 <script>
+import TabNavBar from "../components/tab/tab-nav-bar.vue";
+import TabContainer from "../components/tab/container/tab-container.vue";
+import TabContainerItem from "../components/tab/container/tab-container-item.vue";
+import TabContainerSimple from "../components/tab/container/tab-container-simple.vue";
+import TabContainerItemSimple from "../components/tab/container/tab-container-item-simple.vue";
 
-import TabNav from '../components/tab/nav/tab-nav.vue'
-import TabNavItem from '../components/tab/nav/tab-head-item.vue'
-import TabContainer from '../components/tab/tab-container.vue'
-import TabContainerItem from '../components/tab/tab-container-item.vue'
-import Cell from '../components/cell.vue'
 export default {
-    data() {
-        return {
-            activeItem: 1
-        }
+  data() {
+    return {
+      activeItem: 0,
+      activeItem_s: 0,
+      tabItems: ["买入", "卖出", "收益", "提现"]
+    };
+  },
+  methods: {
+    back() {
+      this.$router.push({
+        path: "/"
+      });
     },
-    methods: {
-        back() {
-            this.$router.push({
-                path: '/'
-            })
-        },
-        changeValue(index) {
-            this.activeItem = index
-        }
+    changeActive(index) {
+      this.activeItem = index;
+      console.log(`滑动到第${index}个了`);
     },
-    components: {
-        Cell,
-        TabNav,
-        TabNavItem,
-        TabContainer,
-        TabContainerItem
+    changeActive_s(index) {
+      this.activeItem_s = index;
     }
-}
-    
+  },
+  components: {
+    TabNavBar,
+    TabContainer,
+    TabContainerItem,
+    TabContainerSimple,
+    TabContainerItemSimple
+  }
+};
 </script>
 
-<style>
-.btn{
+<style scoped>
+.layout {
+  background: #f0f0f0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.btn {
   width: 100%;
   height: 40px;
   background-color: #fff;
@@ -68,16 +94,24 @@ export default {
   color: #444;
   margin-bottom: 10px;
 }
-.btn-blue{
+.btn-blue {
   background: #49f;
   color: #fff;
   border: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.tab{
-    background: #fff;
+.tab_1 {
+  background: #fff;
 }
-.layout {
-    background: #fff;
-    padding-top: 20px;
+.item {
+  text-align: center;
+  background: #fff;
+  line-height: 5;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #333;
 }
 </style>

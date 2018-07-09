@@ -1,80 +1,114 @@
 <template>
-    <div class="ncf-tab-container">
-        <div class="ncf-tab-container-wrap" ref="container-wrap">
+    <div class="ncf-tab-container" ref="container">
+        <div class="ncf-tab-container-wrap" ref="containerWrap">
             <slot></slot>
         </div>
     </div>
-  
 </template>
 
 <script>
-    import { addClass, removeClass, once } from '../../../common/dom.js'
+    import BScroll from 'better-scroll'
 
     const COMPONENT_NAME = "ncf-tab-container"
-    const EVENT = {
-        CHANGE_CURRENT_ACTIVE: 'change-current-active'
+    const DIRECTION_H = 'horizontal'
+    const DIRECTION_V = 'vertical'
+
+    const EVENTS = {
+        CHANGE_ACTIVE: 'change-active'
     }
 
     export default {
         name: COMPONENT_NAME,
         props: {
             activeItem: {
-                type: String | Number,
+                type: Number,
                 default: 0
+            },
+            threshold: {
+                type: Number,
+                default: 0.3
+            },
+            speed: {
+                type: Number,
+                default: 400
+            },
+            direction: {
+                type: String,
+                default: DIRECTION_H,
             }
         },
         data() {
             return {
-                start: {x:0, y:0},
+                datas: [0,1,2,3,4,5],
                 currentActive: this.activeItem
             }
         },
         mounted() {
-            this.$containerWrap = this.$refs['container-wrap'];
-            this.pageWidth = this.$containerWrap.clientWidth;
-        },
-
-        methods: {
-            swipMove(offset) {
-                this.$containerWrap.style.webkitTransform = `translate3d(${offset}px, 0, 0)`;
-            },
-            swipeLeaveTransition(lastIndex = 0) {
-                 if(typeof this.index !== 'number') {
-                    this.index = this.findIndex(this.$children, this.currentActive);
-                    console.log(lastIndex);
-                    this.swipMove(-(lastIndex) * this.pageWidth)
-                 }
-
-                 setTimeout(() => {
-                    addClass(this.$containerWrap, 'swipe-transition');
-                    this.swipMove(-this.index * this.pageWidth);
-                    once(this.$containerWrap, 'webkitTransitionEnd', _ => {
-                        removeClass(this.$containerWrap, 'swipe-transition')
-                        this.$containerWrap.style.webkitTransform = '';
-                        this.index = null;
-                    });
-                 }, 0)
-            },
-            findIndex(arr, target) {
-                let targetIndex;
-                for(let i=0; i<arr.length; i++) {
-                    if(arr[i].index == target) {
-                        targetIndex = i;
-                        break;
-                    }
-                }
-                return targetIndex;
-            }
+            this.$nextTick(() => {
+                this.refresh()
+            })      
         },
         watch: {
-            activeItem(newValue, oldValue) {
-                this.currentActive = newValue;
+            activeItem(newVal, oldVal) {
+                if(newVal != this.currentActive) {
+                    this.container && this.container.goToPage(newVal)
+                }
+            }
+        },
+        methods: {
+            refresh() {
+                if(this.container === null) return
+                this.container && this.container.destroy()
+                this._setContainerStyle()
+                this._initTabSlide()
             },
-            currentActive(newValue, oldValue) {
-                this.$emit(EVENT.CHANGE_CURRENT_ACTIVE, newValue);
-                const lastIndex = this.findIndex(this.$children, oldValue);
-                console.log(lastIndex)
-                this.swipeLeaveTransition(lastIndex);
+            //初始化
+            _initTabSlide() {
+                const eventPassthrough = this.direction === DIRECTION_H  ? DIRECTION_V : ''
+                this.container = new BScroll(this.$refs.container, {
+                    scrollX: this.direction === DIRECTION_H,
+                    scrollY: this.direction === DIRECTION_V,
+                    momentum: false,
+                    bounce: false,
+                    eventPassthrough,
+                    snap:{
+                        threshold: this.threshold,
+                        speed: this.speed
+                    },
+                    stopPropagation: this.stopPropagation,
+                    click: true,
+                    observeDOM: false
+                })
+
+                //默认滚动
+                this.container.goToPage(this.currentActive, 0, 0)
+                //监听滚动结束动作
+                this.container.on('scrollEnd', this._onScrollEnd)
+            },
+            _setContainerStyle() {
+                let allSize = 0
+                this.children = this.$refs.containerWrap.children
+                const target = this.direction === DIRECTION_H ? 'width' : 'height'
+                const containerSize = this.$refs.container[`client${target[0].toUpperCase() + target.slice(1)}`]
+                const len = this.children.length
+                for(let i=0; i<len; i++) {
+                    this.children[i].style[target] = `${containerSize}px`      //设置每一个item的宽度为container的宽度
+                    allSize += containerSize                                   //总的宽度
+                }
+                this.$refs.containerWrap.style[target] = `${allSize}px`        //设置containerWrap的总宽度
+            },
+            _onScrollEnd() {
+                let tabIndex = this.direction == DIRECTION_H ? this.container.getCurrentPage().pageX : this.container.getCurrentPage().pageY
+                if(this.currentActive != tabIndex) {
+                    this.currentActive = tabIndex
+                    this.$emit(EVENTS.CHANGE_ACTIVE, this.currentActive)
+                }
+            }
+        },
+         destroyed() {
+            if (this.container) {
+                this.container.destroy()
+                this.container = null
             }
         }
     }
@@ -85,13 +119,12 @@
     .ncf-tab-container {
         position: relative;
         overflow: hidden;
+        background: #ccc;
     }
-    .ncf-tab-container-wrap {
-        background: #fff;
+    .ncf-tab-container-wrap{
+        position: relative;
+        height: 100%;
         overflow: hidden;
-        display: flex;
-    }
-    .swipe-transition {
-        transition: transform 450ms ease-in-out;
+        white-space: nowrap;
     }
 </style>

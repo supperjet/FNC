@@ -25,11 +25,14 @@
     <router-link tag="div" class="tab-item" to="/toast">
       <span class="tab-link">toast</span>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/tab">
-      <span class="tab-link">tab</span>
-    </router-link>
     <router-link tag="div" class="tab-item" to="/tabBar">
       <span class="tab-link">tabBar</span>
+    </router-link>
+    <router-link tag="div" class="tab-item" to="/tabContainer">
+      <span class="tab-link">tabContainer</span>
+    </router-link>
+    <router-link tag="div" class="tab-item" to="/tab">
+      <span class="tab-link">tab</span>
     </router-link>
     <router-link tag="div" class="tab-item" to="/dialog">
       <span class="tab-link">dialog</span>
@@ -43,9 +46,6 @@
     <router-link tag="div" class="tab-item" to="/scroll">
       <span class="tab-link">scroll</span>
     </router-link>
-    <!-- <router-link tag="div" class="tab-item" to="/sketeon">
-      <span class="tab-link">sketchion</span>
-    </router-link> -->
     <router-link tag="div" class="tab-item" to="/bulletin">
       <span class="tab-link">bulletin</span>
     </router-link>
@@ -76,6 +76,7 @@
     <router-link tag="div" class="tab-item" to="/number">
       <span class="tab-link">number</span>
     </router-link>
+    
     <h3>你财富业务组件</h3>
     <router-link tag="div" class="tab-item" to="/moneyInput">
       <span class="tab-link">金额输入</span>
