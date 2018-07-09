@@ -12,7 +12,7 @@
 <script>
    import ncfPopup from "../popup.vue"
    import apiMixin from "../mixin/api.js"
-   import baseLoading from "../loading_icon.vue"
+   import baseLoading from "./loading_icon.vue"
 
    const COMPONENT_NAME = "toast";
 
