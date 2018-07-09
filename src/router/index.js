@@ -10,7 +10,8 @@ import cardShow from '../examples/card-show.vue'
 import PanelShow from '../examples/panel-show.vue'
 import LoadingShow from '../examples/loading-show.vue'
 import ToastShow from '../examples/toast-show.vue'
-import TabShow from '../examples/ncf-tab-show.vue'
+import TabShow from '../examples/tab-show.vue'
+import TabContainerShow from '../examples/tabContainer-show.vue'
 import TabBarShow from '../examples/tabBar-show.vue'
 import DialogShow from '../examples/dialog-show.vue'
 import UploadShow from '../examples/upload-show.vue'
@@ -233,6 +234,11 @@ export default new Router({
       path: '/scroll',
       name: 'scroll',
       component: ScrollShow
+    },
+    {
+      path: '/tabContainer',
+      name: 'tabContainer',
+      component: TabContainerShow
     }
   ]
 })
