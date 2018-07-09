@@ -18,6 +18,7 @@
                 class="bog"
                 :value="val" 
                 :duration="800" 
+                is-separator
                 is-animated 
             >
             </ncf-number>

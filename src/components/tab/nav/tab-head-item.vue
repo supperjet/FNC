@@ -6,10 +6,8 @@
             'noline': !underline
         }"
        :style="{'margin-left': lw+'px', 'margin-right': lw+'px'}"
-       @click="!disabled && handleTabClick(index)">
-       <div class="ncf-tab-item-icon">
-           <slot name="icon"></slot>
-       </div>
+       @click="!disabled && handleTabClick(index)"
+    >
        <div class="ncf-tab-item-label">
            <slot></slot>
        </div>
