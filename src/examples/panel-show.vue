@@ -1,6 +1,9 @@
 <template>
   <div class="layout">
-      <panel :needTip="true"></panel>
+      <panel>
+        <div slot="title">你财富</div>
+      </panel>
+      <br>
       <card>
         <div slot="title">
           卡片组合
