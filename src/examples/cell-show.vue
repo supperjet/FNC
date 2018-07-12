@@ -1,35 +1,28 @@
 <template>
   <div class="layout">
     <cell class="cell-item">
-      <div slot="content">
-        默认样式
-      </div>
+      <div>默认样式</div>
     </cell>
     <br>
-    <cell class="cell-item" iconShow >
-      <div slot="content">带图标</div>
-      <div slot="pic" class="pic"></div>
+    <cell class="cell-item">
+      <div class="pic"></div><div>带图标</div>
     </cell>
     <br>
     <cell class="cell-item" :labelShow="false">
-      <div slot="content">
-        不带图标
-      </div>
+      <div>不带箭头</div>
     </cell>
     <br>
-    <cell needBorderBtm>
-      <div slot="content">
-        带底部边框
-      </div>
+    <cell need-border-btm>
+      <div>带底部边框</div>
     </cell>
     <cell :tipShow="true">
-      <div slot="content">
+      <div>
         带箭头注释内容
       </div>
     </cell>
     <br>
      <cell class="cell-item" disabled>
-      <div slot="content">
+      <div>
         禁用
       </div>
     </cell>
@@ -76,8 +69,9 @@ export default {
     outline: none;
   }
   .pic {
-    width: 100%;
-    height: 100%;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;

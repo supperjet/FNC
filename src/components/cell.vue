@@ -6,16 +6,10 @@
         <div class="ncf-cell flex flex-h flex-align-center flex-pack-justify" 
              :class="{'border-bottom-1px': needBorderBtm}" @click="handleCellEvent"
         >
-            <div class="cell-main flex">
-                <div class="cell-img" v-show="iconShow">
-                    <slot name="pic">
-                        <img src="" class="cell-pic"/>
-                    </slot>
+            <div class="cell-main">
+                <div class="cell-content flex flex-h">
+                    <slot>锄禾锄禾锄禾</slot>
                 </div>
-                <div class="cell-content">
-                    <slot name="content">锄禾锄禾锄禾</slot>
-                </div>
-                <slot name="help"></slot>
             </div>
 
             <div class="cell-label flex flex-h flex-align-center flex-pack-center" 
@@ -42,10 +36,6 @@
     export default {
         name: COMPONENT_NAME,
         props: {
-            iconShow: {
-                type: Boolean,
-                default: false
-            },
             tipShow: {
                 type: Boolean,
                 default: false
@@ -89,11 +79,6 @@
     }
     .ncf-cell .cell-main{
         color: rgb(51,51,51);
-    }
-    .ncf-cell .cell-main .cell-img {
-        width:20px;
-        height: 20px;
-        margin-right: 8px;
     }
     .ncf-cell .cell-main .cell-content{
         font-size: 14px;

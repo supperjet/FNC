@@ -93,8 +93,7 @@
     .ncf-card .ncf-card-header .card-img{
         width: 20px;
         height: 20px;
-        background: red;
-        margin-right: 6px;
+        margin-right: 5px;
     }
     .ncf-card .ncf-card-header .icon .tips{
         color: #999;
