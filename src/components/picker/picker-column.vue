@@ -1,22 +1,22 @@
 <template>
-  <div class="md-picker-column" :style="{ height: `${style.indicatorHeight + 2 * style.maskerHeight}px` }">
+  <div class="md-picker-column" :style="{ height: style.indicatorHeight + 2 * style.maskerHeight+'px' }">
     <div class="md-picker-column-container">
-      <div class="md-picker-column-masker top border-bottom-1px" :style="{ height: `${style.maskerHeight}px` }"></div>
-      <div class="md-picker-column-masker bottom border-top-1px" :style="{ height: `${style.maskerHeight}px` }"></div>
+      <div class="md-picker-column-masker top border-bottom-1px" :style="{ height: style.maskerHeight+'px' }"></div>
+      <div class="md-picker-column-masker bottom border-top-1px" :style="{ height: style.maskerHeight+'px' }"></div>
       <div class="md-picker-column-list">
         <template v-for="(colunm, i) in columnValues">
           <div
             class="md-picker-column-item"
             :key="i"
           >
-            <ul class="column-list" :style="{ 'padding-top': `${style.maskerHeight}px` }">
+            <ul class="column-list" :style="{ 'padding-top': style.maskerHeight+'px' }">
               <template v-for="(item, j) in colunm">
                 <li
                   class="column-item"
                   :class="{'disabled': $_isColumnIndexInvalid(i, j)}"
                   :style="{
-                    'height': `${style.indicatorHeight}px`,
-                    'line-height': `${style.indicatorHeight}px`
+                    'height': style.indicatorHeight+'px',
+                    'line-height': style.indicatorHeight+'px'
                     }"
                   :key="j"
                   v-text="item.text || item.label"
@@ -28,7 +28,7 @@
         </template>
         <template v-for="n in (cols - columnValues.length)">
           <div class="md-picker-column-item" :key="n + columnValues.length - 1">
-            <ul class="column-list" :style="{ 'padding-top': `${style.maskerHeight}px` }"></ul>
+            <ul class="column-list" :style="{ 'padding-top': style.maskerHeight+'px' }"></ul>
           </div>
         </template>
       </div>
@@ -447,6 +447,7 @@ export default {
 }
 .md-picker-column-container .md-picker-column-hooks{
   display: flex;
+  display: -webkit-box;
   position: absolute;
   z-index: 3;
   top: 0;
@@ -456,17 +457,22 @@ export default {
 }
 .md-picker-column-container .md-picker-column-hooks .md-picker-column-hook{
   display: flex;
+  display: -webkit-box;
   flex: 1;
+  -webkit-box-flex: 1;
   height: 100%;
 }
 .md-picker-column-list {
   display: flex;
+  display: -webkit-box;
   height: 100%
 }
 .md-picker-column-list .md-picker-column-item{
   position: relative;
   display: flex;
+  display: -webkit-box;
   flex: 1;
+  -webkit-box-flex: 1;
   overflow: hidden;
   clear: both;
 }
