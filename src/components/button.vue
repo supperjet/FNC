@@ -8,7 +8,7 @@
           <ncf-loading :size="'22'" :bg-color="'#fff'"></ncf-loading>
       </div>
     </ncf-rect>
-    <div class="mask" v-show="requesting" @click.stop></div>
+    <div class="mask" v-show="requesting || disableActive" @click.stop></div>
   </div>
 </template>
 <script>
@@ -27,6 +27,10 @@ export default {
       default: false
     },
     fixed: {
+      type: Boolean,
+      default: false
+    },
+    disableActive: {
       type: Boolean,
       default: false
     },
@@ -51,7 +55,7 @@ export default {
   },
   methods: {
     sendMsg() {
-      if(!this.requesting && !this.disabled) {
+      if(!this.requesting && !this.disabled && !this.disableActive) {
           this.$emit(EVENTS.BTN_EVENT)
       }
     }
@@ -66,15 +70,14 @@ export default {
   .ncf-btn {
     color: #fff;
     text-align: center;
-    margin: 0 15px;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
   }
   .ncf-btn.btn-bottom{
+    position: fixed;
     border-radius: 0px;
     margin: 0;
-    position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
@@ -90,7 +93,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.2);
     z-index: 2;
   }
 </style>
