@@ -40,15 +40,15 @@ npm run build --report
 19. tabs
 20. dialog
 21. scroll
-22. panel(完善中)
+22. panel
 23. rect
 24. progressBar(完善中)
 25. number
+26. keyboard
 
 ### 业务组件
 1. amount
 2. news
 3. banklist
-4. field
 
 

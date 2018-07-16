@@ -5,7 +5,7 @@
       <cell tip-show need-border-btm><span class="tab-link">popup</span><span slot="tips">弹出层</span></cell>
     </router-link>
     <router-link tag="div" class="tab-item" to="/baseaction">
-      <cell need-border-btm><span class="tab-link">action sheet</span></cell>
+      <cell need-border-btm><span class="tab-link">action sheet</span><span slot="tips">基础action sheet</span></cell>
     </router-link>
     <router-link tag="div" class="tab-item" to="/transparent">
        <cell tip-show need-border-btm><span class="tab-link">trans</span><span slot="tips">侧滑</span></cell>
@@ -55,7 +55,7 @@
     <router-link tag="div" class="tab-item" to="/picker">
       <cell tip-show need-border-btm><span class="tab-link">picker</span><span slot="tips">选择器</span></cell>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/rect">
+    <router-link tag="div" class="tab-item" to="/button">
       <cell tip-show need-border-btm><span class="tab-link">button</span><span slot="tips">按钮</span></cell>
     </router-link>
     <router-link tag="div" class="tab-item" to="/flex">
@@ -76,6 +76,9 @@
     <router-link tag="div" class="tab-item" to="/number">
       <cell tip-show need-border-btm><span class="tab-link">number</span><span slot="tips">数字</span></cell>
     </router-link>
+    <router-link tag="div" class="tab-item" to="/keyboard">
+      <cell tip-show need-border-btm><span class="tab-link">keyboard</span><span slot="tips">键盘</span></cell>
+    </router-link>
     
     <cell :label-show="false" need-border-btm><h3>你财富业务组件</h3></cell>
     <router-link tag="div" class="tab-item" to="/moneyInput">
@@ -88,8 +91,9 @@
       <cell need-border-btm><span class="tab-link">银行列表选择</span></cell>
     </router-link>
     <!-- <router-link tag="div" class="tab-item" to="/filed">
-      <cell need-border-btm><span class="tab-link">filed</span></cell>
-    </router-link> -->
+      <cell need-border-btm><span class="tab-link">filed</span></cell> -->
+    <!-- </router-link> -->
+
   </div>
 </template>
 <script>

@@ -1,4 +1,4 @@
-*{
+div, ul, ol,li,p{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -69,7 +69,6 @@ a:active{
     background: rgba(0,0,0,.1);
     -webkit-tap-highlight-color:transparent;
 }
-
 a.large-react {
     padding: 16px 15px;
     display: block;
@@ -86,7 +85,7 @@ a.medium-react {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-a.medium-react {
+a.small-react {
     padding: 10px 15px;
     display: block;
     height: 100%;
@@ -94,7 +93,6 @@ a.medium-react {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
 .flex {
     display: -webkit-box;
     display: -webkit-flex;
