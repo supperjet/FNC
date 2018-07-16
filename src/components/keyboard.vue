@@ -135,6 +135,7 @@
         bottom: 0px;
         left:0;
         right:0;
+        z-index: 200;
         border-top: 1px solid #eee;
         -webkit-user-select: none;
     }
