@@ -59,16 +59,6 @@ ul{
     background-image: -o-linear-gradient(to left, #eee 50%, transparent 50%);
     background-image: linear-gradient(to left, #eee 50%, transparent 50%);
 }
-
-a {
-    text-decoration: none;
-    outline: 0;
-}
-
-a:active{
-    background: rgba(0,0,0,.1);
-    -webkit-tap-highlight-color:transparent;
-}
 a.large-react {
     padding: 16px 15px;
     display: block;

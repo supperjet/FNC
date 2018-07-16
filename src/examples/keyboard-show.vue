@@ -1,17 +1,18 @@
 <template>
     <div class="layout">
+        <br>
         <div style="margin:15px">
-            <h4>纯数字类型</h4>
+            <h5>纯数字类型</h5>
             <small>纯数字，用于密码、验证码等</small>
             <ncf-button @btn-event="showKB_1">唤起键盘</ncf-button>
         </div>
          <div style="margin:15px">
-            <h4>金额类型</h4>
+            <h5>金额类型</h5>
             <small>带小数点、确认键，用于金额和价格输入等</small>
             <ncf-button @btn-event="showKB_2">唤起键盘</ncf-button>
         </div>
          <div style="margin:15px">
-            <h4>数字乱序</h4>
+            <h5>数字乱序</h5>
             <ncf-button @btn-event="showKB_3">唤起键盘</ncf-button>
         </div>
         <p class="kb-ctn"><span>NUM:</span><span>{{content_1}}</span></p>
@@ -60,7 +61,10 @@
 </script>
 <style>
     .kb-ctn{
-        margin-top: 80px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         font-size: 25px;
         text-align: center;
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

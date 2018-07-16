@@ -1,5 +1,5 @@
 <template>
-<transition name="kb-slide">
+    <transition name="kb-slide">
         <div class="ncf-kb-container flex" :class="mode" v-show="isVisible">
             <div class="kb-number" :class="{'flex-3': isPower, 'flex-1': !isPower}">
                 <ul class="kb-number-list">
@@ -43,7 +43,7 @@
                 </ul>
             </div>
         </div>
-</transition>
+    </transition>
 </template>
 <script>
     import NcfRect from './rect.vue'
