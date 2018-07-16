@@ -4,17 +4,17 @@
       <br>
       <card iconShow>
         <div slot="pic" class="icon"></div>
-        <span slot="title">带图标</span>
+        <span slot="title">带图标(iconShow)</span>
       </card>
       <br>
       <card iconShow labelShow>
         <div slot="pic" class="icon"></div>
-        <span slot="title">带图标 带箭头</span>
+        <span slot="title">带箭头(labelShow)</span>
       </card>
       <br>
       <card iconShow labelShow tipShow>
         <div slot="pic" class="icon"></div>
-        <span slot="title">带图标 带箭头 带箭头tip</span>
+        <span slot="title">带箭头tip(tipShow)</span>
       </card>
       <br>
       <card labelShow>
@@ -29,13 +29,20 @@
         <span slot="title">显示footer并触发事件</span>
       </card>
       <br>
-       <card labelShow>
+      <card labelShow>
          <span slot="title">组合</span>
          <div slot="content">
            <cell 
               v-for="(item,index) in 3" :key="index"
               :need-border-btm="index!=2?true:false"
            ></cell>
+         </div>
+      </card>
+       <br>
+       <card :need-bdr-btm="false">
+         <span slot="title" style="font-size: 20px">不要底部border</span>
+         <div slot="content" style="padding: 0 15px 15px 15px;">
+           浮世万千, 吾爱有三，日、月、卿浮世万千, 吾爱有三，日、月、卿。浮世万千, 吾爱有三，日、月、卿。
          </div>
       </card>
       <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>

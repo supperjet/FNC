@@ -1,6 +1,8 @@
 <template>
     <div class="ncf-card">
-        <div class="ncf-card-header flex flex-h flex-align-center flex-pack-justify border-bottom-1px">
+        <div class="ncf-card-header flex flex-h flex-align-center flex-pack-justify" 
+             :class="{'border-bottom-1px': needBdrBtm}"
+        >
             <div class="card-left flex flex-h">
                 <div class="card-img" v-show="iconShow">
                     <slot name="pic">
@@ -64,6 +66,10 @@
             tipShow: {
                 type: Boolean,
                 default: false
+            },
+            needBdrBtm: {
+                type: Boolean,
+                default: true
             }
         },
         methods: {
