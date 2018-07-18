@@ -22,8 +22,8 @@ import SlideShow from '../examples/slide-show.vue'
 import ProgressBar from '../components/progressbar.vue'
 import Radio from '../examples/radio-show.vue'
 import Checkbox from '../examples/checkbox-show.vue'
-import Rect from '../examples/button-show.vue'
-import Flex from '../components/flex.vue'
+import Button from '../examples/button-show.vue'
+import Flex from '../examples/flex-show.vue'
 import pickerShow from '../examples/pick-show/index.vue'
 import pickerDemo0 from '../examples/pick-show/demo0.vue'
 import pickerDemo1 from '../examples/pick-show/demo1.vue'
@@ -36,7 +36,9 @@ import datepickerDemo3 from '../examples/datepicker-show/demo3.vue'
 import TipShow from '../examples/tip-show.vue'
 import NumberShow from '../examples/number-show.vue'
 import ScrollShow from '../examples/scroll-show.vue'
-
+import keyboard from '../examples/keyboard-show.vue'
+import repayMode from '../examples/repaymode.vue'
+import codeBox from '../components/codebox.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -173,9 +175,9 @@ export default new Router({
       ]
     },
     {
-      path: '/rect',
-      name: 'Rect',
-      component: Rect
+      path: '/button',
+      name: 'Button',
+      component: Button
     },
     {
       path: '/tip',
@@ -239,6 +241,21 @@ export default new Router({
       path: '/tabContainer',
       name: 'tabContainer',
       component: TabContainerShow
+    },
+    {
+      path: '/keyboard',
+      name: 'keyboard',
+      component: keyboard
+    },
+    {
+      path: '/repaymode',
+      name: 'repayMode',
+      component: repayMode
+    },
+    {
+      path: '/codebox',
+      name: 'codebox',
+      component: codeBox
     }
   ]
 })

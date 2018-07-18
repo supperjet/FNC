@@ -1,59 +1,75 @@
 <template>
-  <transition :name="reverse?'slide-left':'slide'">
-    <div class="slide-container" :class="typeClass" :style="bgStyle">
-      <slot>
-        <div></div>
-      </slot>
-    </div>
+  <transition :name="transition">
+      <slot></slot>
   </transition>
 </template>
 <script>
 export default {
   props: {
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    type: {
+    mode: {
       type: String,
-      default: ''
+      default: 'down'
     },
-    bgColor: {
+    transition: {
       type: String,
-      default: ''
-    }
-  },
-  computed: {
-    typeClass() {
-      return this.type ? `${this.type}-slide` : ''
-    },
-    bgStyle() {
-      if(this.bgColor) {
-        return {
-          backgroundColor: this.bgColor
+      default() {
+        switch (this.mode) {
+          case 'up':
+            return 'slide-up'
+          case 'down':
+            return 'slide-down'
+          case 'left':
+            return 'slide-right'
+          case 'right':
+            return 'slide-left'
+          default:
+            return 'fade-left'
         }
-      }else{
-        return {}
-      }
+      },
     }
   }
 }
 </script>
 <style scoped>
-.slide-enter-active, .slide-leave-active {
-    transition: all 0.3s ease-in;
-    -webkit-transition: all 0.3s ease-in;
-}
-.slide-enter, .slide-leave-to {
-    transform: translate3d(100%, 0, 0);
-    -webkit-transform: translate3d(100%, 0, 0);
-}
-.slide-left-enter-active, .slide-left-leave-active {
-    transition: all 0.3s ease-in;
-    -webkit-transition: all 0.3s ease-in;
-}
-.slide-left-enter, .slide-left-leave-to {
-    transform: translate3d(-100%, 0, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-}
+  .slide-right-enter-active, .slide-right-leave-active {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+  }
+  .slide-right-enter, .slide-right-leave-to {
+      transform: translate3d(100%, 0, 0);
+      -webkit-transform: translate3d(100%, 0, 0);
+  }
+  .slide-left-enter-active, .slide-left-leave-active {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+  }
+  .slide-left-enter, .slide-left-leave-to {
+      transform: translate3d(-100%, 0, 0);
+      -webkit-transform: translate3d(-100%, 0, 0);
+  }
+  .slide-up-enter-active, .slide-up-leave-active {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+  }
+  .slide-up-enter, .slide-up-leave-to {
+      transform: translate3d(0, 100%, 0);
+      -webkit-transform: translate3d(0, 100%, 0);
+  }
+  .slide-down-enter-active, .slide-down-leave-active {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+  }
+  .slide-down-enter, .slide-down-leave-to {
+      transform: translate3d(0, -100%, 0);
+      -webkit-transform: translate3d(0, -100%, 0);
+  }
+  .fade-left-enter-active, .fade-left-leave-active {
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+  }
+  .fade-left-enter, .fade-left-leave-to {
+      opacity: 0;
+      transform: translate3d(50%, 0, 0);
+      -webkit-transform: translate3d(50%, 0, 0);
+  }
 </style>

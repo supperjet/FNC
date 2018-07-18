@@ -1,18 +1,21 @@
 <template>
   <div class="slideshow">
       <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>
-      <button type="button" name="button" @click="showSlide" class="btn">显示侧滑</button>
+      <button type="button" name="button" @click="fadeLeft" class="btn">fade-left</button>
+      <button type="button" name="button" @click="up" class="btn">up</button>
+      <button type="button" name="button" @click="down" class="btn">down</button>
+      <button type="button" name="button" @click="left" class="btn">left</button>
+      <button type="button" name="button" @click="right" class="btn">right</button>
       <router-view></router-view>
   </div>
 </template>
 <script>
-  
 export default {
   name: "",
   data() {
     return {
       isVisible: false,
-      position: ''
+      position: 'fade-left'
     }
   },
   methods: {
@@ -21,9 +24,29 @@ export default {
         path: '/'
       })
     },
-    showSlide() {
+    fadeLeft() {
+      this.position = 'fade-left'
+      this.routerPush()
+    },
+    up() {
+      this.position = 'up'
+      this.routerPush()
+    },
+    down() {
+      this.position = 'down'
+      this.routerPush()
+    },
+    left() {
+      this.position = 'left'
+      this.routerPush()
+    },
+    right() {
+      this.position = 'right'
+      this.routerPush()
+    },
+    routerPush() {
       this.$router.push({
-        path: '/transparent/trans'
+        path: '/transparent/trans/?mode'+this.position,
       })
     }
   },

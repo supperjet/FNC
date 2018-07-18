@@ -51,6 +51,8 @@
    text-align: center;
    padding: 9px 12px 5px 12px;
    box-sizing: border-box;
+   width: 60px;
+   margin: 0 auto;
 }
 .ncf-loading-tip{
     font-size: 12px;

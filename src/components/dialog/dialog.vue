@@ -154,7 +154,7 @@ export default {
 }
 .ncf-dialog-btn {
   width: 100px;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 15px;
   line-height: 1;
   text-align: center;

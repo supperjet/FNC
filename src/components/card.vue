@@ -81,9 +81,7 @@
             }
         }
      }
-
 </script>
-
 <style scoped>
     @import '../common/common.css';
 

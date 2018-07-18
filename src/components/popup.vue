@@ -93,7 +93,6 @@ export default {
   position: absolute;
   top: -50%;
   left: -50%;
-  width: auto;
   max-width: 100%;
   box-sizing: border-box;
   transform: translate3d(-50%, -50%, 0);

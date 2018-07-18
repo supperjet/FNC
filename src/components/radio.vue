@@ -60,7 +60,6 @@
         methods: {
             handleRadioEvent(index) {
                 if(this.currenntIndex != index) {
-                    console.log(index)
                     this.currenntIndex = index
                     this.$emit(EVENTS.RADIO_ITEM_CLICK, index)
                 }
