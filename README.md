@@ -45,6 +45,7 @@ npm run build --report
 24. progressBar(完善中)
 25. number
 26. keyboard
+27. codebox(完善中)
 
 ### 业务组件
 1. amount
