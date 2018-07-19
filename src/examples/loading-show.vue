@@ -1,15 +1,21 @@
 <template>
   <div class="layout">
-    <button @click="showLoading" class="btn-blue">显示</button>
-    <!-- <button @click="showMask" class="btn-blue">显示遮罩层</button> -->
-    <button @click="back" class="btn-blue">返回上一层</button>
+    <br>
+    <loading-icon-svg></loading-icon-svg>
+    <br>
+    <loading-icon></loading-icon>
     <br>
     <scroll-loading></scroll-loading>
+    <br>
+    <button @click="showLoading" class="btn-blue">显示</button>
+    <button @click="back" class="btn-blue">返回上一层</button>
   </div>
 </template>
 <script>
 import Loading from '../components/loading/index.js'
 import ScrollLoading from '../components/loading/scroll_loading.vue'
+import LoadingIconSvg from '../components/loading/loading_icon_svg'
+import LoadingIcon from '../components/loading/loading_icon.vue'
 
 const loading = new Loading()
 
@@ -32,7 +38,10 @@ export default {
     }
   },
   components: {
-    Loading,ScrollLoading
+    Loading,
+    LoadingIcon,
+    ScrollLoading,
+    LoadingIconSvg
   }
 }
 </script>

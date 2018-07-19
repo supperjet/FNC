@@ -51,5 +51,5 @@ npm run build --report
 1. amount
 2. news
 3. banklist
-
+4. repaymode
 

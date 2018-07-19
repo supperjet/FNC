@@ -75,7 +75,8 @@
 
     .ncf-cell{
         position: relative;
-        padding: 12px 15px;
+        padding: 12px 15px 12px 0;
+        margin-left: 15px;
     }
     .ncf-cell .cell-main{
         color: rgb(51,51,51);

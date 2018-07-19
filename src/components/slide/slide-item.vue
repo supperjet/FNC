@@ -29,7 +29,6 @@
     float: left;
     box-sizing: border-box;
     height: 100%;
-    text-align: center;
   }
   .ncf-slide-item > a {
     display: block;

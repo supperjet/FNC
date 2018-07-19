@@ -1,5 +1,6 @@
 <template>
   <div class="layout">
+    <small>slide默认内置图片, 只需传入图片地址即可</small>
     <div class="banner">
       <slide :data="banerlist"
              :initialIndex="bannerOption.initialIndex"
@@ -13,6 +14,19 @@
       >
       </slide>
     </div>
+
+    <small>不是图片的，可使用内置的slide-item自定义滑动内容</small>
+    <div class="banner">
+      <slide :data="items">
+        <slide-item 
+          class="item"
+          v-for="(item, index) in items" :key="index"
+        >
+        {{item}}
+        </slide-item>
+      </slide>
+    </div>
+
     <div class="control">
       <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>
       <button type="button" name="button" @click="setInitialIndex" class="btn">设置默认项为1</button>
@@ -26,11 +40,14 @@
   </div>
 </template>
 <script>
+
 import Slide from '../components/slide/slide.vue'
+import SlideItem from '../components/slide/slide-item'
 
 export default {
   data() {
     return {
+      items:[1,2,3,4,5,6,7,8,9,10],
       banerlist: [
         {
           url: 'http://www.nicaifu.com',
@@ -82,24 +99,26 @@ export default {
 
   },
   components: {
-    Slide
+    Slide,
+    SlideItem
   }
 }
 </script>
 <style scoped>
   .banner{
    overflow: hidden;
-    height: 177px;
+    height: 200px;
   }
   .btn{
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     border: 1px solid #ddd;
     background-color: #fff;
     border-radius: 5px;
     outline: none;
     color: #444;
     margin-bottom: 10px;
+    font-size: 12px;
   }
   .btn-blue{
     background: #49f;
@@ -117,8 +136,16 @@ export default {
   .control{
     padding-top:50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap:wrap;
+
+  }
+  .item{
+    height: 300px;
+    background: #ed4e39;
+    color:#FFF;
+    font-size: 40px;
   }
 </style>

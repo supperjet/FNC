@@ -1,3 +1,4 @@
+
 <template>
     <div class="ncf-panel-item" :class="typeClass">
         <div class="ncf-panel-item-header flex flex-h flex-pack-justify flex-align-cente border-bottom-1px" @click="toggle">
@@ -17,15 +18,16 @@
         </div>
         <div class="ncf-panel-item-content" :class="{panelDown: active}">
             <slot>
-                    <p>锄禾日当午</p>
+                <p>锄禾日当午</p>
 
-                    <p>汗滴禾下土</p>
+                <p>汗滴禾下土</p>
 
-                    <p>谁知盘中餐</p>
+                <p>谁知盘中餐</p>
 
-                    <p>粒粒皆辛苦</p>
+                <p>粒粒皆辛苦</p>
             </slot>
         </div>
+        
     </div>
 </template>
 
@@ -84,19 +86,20 @@
         font-size: 14px;
     }
     .ncf-panel-item .ncf-panel-item-header .icon .spread{
-        width: 10px;
-        height: 10px;
-        border-bottom: 1px solid #CCC;
-        border-right: 1px solid #CCC;
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid #CCC;
+        border-right: 2px solid #CCC;
         content: "";
         transform-origin: center center;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        transition: transform .2s;
-    }
-    .ncf-panel-item .ncf-panel-item-header .icon .spread.iconActive{
         transform: rotate(45deg) translateY(-4px);
         -webkit-transform: rotate(45deg) translateY(-4px);
+        transition: transform .85s;
+        -webkit-transition: transform .85s;
+    }
+    .ncf-panel-item .ncf-panel-item-header .icon .spread.iconActive{
+        transform: rotate(225deg);
+        -webkit-transform: rotate(225deg);
     }
     .ncf-panel-item .ncf-panel-item-header .icon .tips {
         margin-right: 10px;
@@ -105,9 +108,9 @@
         background: #fff;
         max-height: 0;
         overflow: hidden;
+        transition: max-height 0.35s;
     }
     .ncf-panel-item .ncf-panel-item-content.panelDown{
-        max-height: 3000px;
-        transition: max-height 1.2s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+        max-height: 600px;
     }
 </style>

@@ -18,7 +18,7 @@
         props: {
             size: {
                 type: Number | String,
-                default: 12
+                default: 20
             },
             bgColor: {
                 type: String,

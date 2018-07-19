@@ -57,7 +57,7 @@ export default {
       Dialog({
         mode: 'alert',
         title: '',
-        content:'浮世万千, 吾爱有三，日、月、卿浮世万千, 吾爱有三，日、月、卿。浮世万千, 吾爱有三，日、月、卿。',
+        content:'浮世万千, 吾爱有三，日、月、卿浮世万千, 吾爱有三，日、月、卿。浮世万千, 吾爱有三，日、月、卿。3',
         ok: function() {
           Toast('你点击了确定按钮', 'bottom')
         }
@@ -76,7 +76,7 @@ export default {
     },
     showTwoBtn_3() {
       Dialog({
-        mode: 'confirm',
+        mode: 'alert',
         title: '回调函数',
         content:'浮世万千, 吾爱有三，日、月、卿浮世万千, 吾爱有三，日、月、卿。浮世万千, 吾爱有三，日、月、卿。',
         ok: function() {
@@ -91,7 +91,7 @@ export default {
     showTwoBtn_4() {
        Dialog({
         mode: 'confirm',
-        title: '回调函数',
+        title: '不要buttons',
         needBtns: false,
         content:'浮世万千, 吾爱有三，日、月、卿浮世万千, 吾爱有三，日、月、卿。浮世万千, 吾爱有三，日、月、卿。',
         ok: function() {

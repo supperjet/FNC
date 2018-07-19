@@ -6,7 +6,7 @@
             :active-item="2"
             @change-active="changeActive"
         >
-            <tab-container-item class="item" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
+            <tab-container-item class="item" :class="['item'+index]" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
         </tab-container>
 
         <small><strong>纵向滚动</strong>，需要设置外层container的height</small>
@@ -15,7 +15,7 @@
             direction="vertical"
             @change-active="changeActive"
         >
-            <tab-container-item class="item" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
+            <tab-container-item class="item" :class="['item'+index]" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
         </tab-container>
          <small>监听事件（change-active）看右侧打印值</small>
      </div>
@@ -53,6 +53,21 @@
         font-size: 40px;
         font-weight: bolder;
         color: #fff;
+    }
+    .item1{
+        background: #233142;
+    }
+    .item2{
+        background: #facf5a;
+    }
+    .item3{
+        background: #f95959;
+    }
+    .item4{
+        background: #455d7a;
+    }
+    .item5{
+        background: #a1c45a;
     }
 
 </style>

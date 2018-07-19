@@ -21,7 +21,7 @@
         </router-link>
       </div>
     </panel>
-
+    <br>
     <panel is-active>
       <h4 slot="title">视图布局</h4>
       <div>
@@ -36,7 +36,7 @@
         </router-link>
       </div>
     </panel>
-
+    <br>
     <panel is-active>
       <h4 slot="title">优化体验</h4>
       <div>
@@ -48,7 +48,7 @@
         </router-link>
       </div>
     </panel>
-
+    <br>
     <panel is-active>
       <h4 slot="title">tab & slide & scroll</h4>
       <div>
@@ -69,7 +69,7 @@
         </router-link>
       </div>
     </panel>
-
+    <br>
     <panel is-active>
       <h4 slot="title">原生类</h4>
       <div>
@@ -87,7 +87,7 @@
         </router-link>
       </div>
     </panel>
-
+    <br>
     <panel is-active>
       <h4 slot="title">小工具</h4>
       <div>
@@ -166,7 +166,7 @@ h2{
 h4{
   text-align: center;
   color: #f76b3b;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 18px;
 }
 </style>

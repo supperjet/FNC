@@ -114,10 +114,9 @@ export default {
 <style scoped>
 @import "../../common/common.css";
 .ncf-dialog-main {
-  margin: 0 10%;
-  text-align: center;
+  margin: 0 7.3%;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: #fff;
 }
 .ncf-dialog-confirm,
@@ -134,12 +133,12 @@ export default {
   white-space: nowrap;
   color: #fff;
   padding: 10px 0;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 0.01rem;
+  text-align: center;
 }
 .ncf-dialog-content {
-  margin: 22px 18px 22px 18px;
-  text-align: center;
+  margin: 32px 15px 35px 15px;
   font-size: 14px;
   color: #333;
 }
@@ -154,8 +153,8 @@ export default {
 }
 .ncf-dialog-btn {
   width: 100px;
-  padding: 10px 0;
-  font-size: 15px;
+  padding: 12px 0;
+  font-size: 16px;
   line-height: 1;
   text-align: center;
   text-decoration: none;
@@ -177,9 +176,11 @@ export default {
 }
 .ncf-dialog-fade-enter-active {
   animation: dialog-fadein 0.3s;
+  -webkit-animation: dialog-fadein 0.3s;
 }
 .ncf-dialog-fade-enter-active .ncf-dialog-main {
-  animation: dialog-zoom 0.3s;
+  animation: dialog-zoom 0.3s, dialog-fadein 0.4s;
+   -webkit-animation: dialog-zoom 0.3s, dialog-fadein 0.6s;
 }
 @keyframes dialog-fadein {
   0% {
@@ -190,6 +191,25 @@ export default {
   }
 }
 @keyframes dialog-zoom {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes dialog-fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes dialog-zoom {
   0% {
     transform: scale(0);
   }
