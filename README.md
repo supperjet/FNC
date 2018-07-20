@@ -46,6 +46,7 @@ npm run build --report
 25. number
 26. keyboard
 27. codebox(完善中)
+28. badge
 
 ### 业务组件
 1. amount
