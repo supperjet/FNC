@@ -39,6 +39,7 @@ import ScrollShow from '../examples/scroll-show.vue'
 import keyboard from '../examples/keyboard-show.vue'
 import repayMode from '../examples/repaymode.vue'
 import codeBox from '../components/codebox.vue'
+import BadgeShow from '../examples/badge-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -256,6 +257,11 @@ export default new Router({
       path: '/codebox',
       name: 'codebox',
       component: codeBox
+    },
+    {
+      path: '/badge',
+      name: 'BadgeShow',
+      component: BadgeShow
     }
   ]
 })
