@@ -47,6 +47,7 @@ npm run build --report
 26. keyboard
 27. codebox(完善中)
 28. badge
+29. segPicker
 
 ### 业务组件
 1. amount
