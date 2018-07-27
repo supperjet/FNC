@@ -40,6 +40,7 @@ import keyboard from '../examples/keyboard-show.vue'
 import repayMode from '../examples/repaymode.vue'
 import codeBox from '../components/codebox.vue'
 import BadgeShow from '../examples/badge-show.vue'
+import segPicker from '../examples/segPicker-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -262,6 +263,11 @@ export default new Router({
       path: '/badge',
       name: 'BadgeShow',
       component: BadgeShow
+    },
+    {
+      path: '/segpicker',
+      name: 'segPicker',
+      component: segPicker
     }
   ]
 })

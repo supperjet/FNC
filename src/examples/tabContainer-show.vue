@@ -3,7 +3,7 @@
         <small><strong>横向滚动</strong>，不需要设置外层container的height</small>
         <tab-container 
             class="tabContainer"
-            :active-item="2"
+            :active-item="activeIndex"
             @change-active="changeActive"
         >
             <tab-container-item class="item" :class="['item'+index]" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
@@ -18,6 +18,7 @@
             <tab-container-item class="item" :class="['item'+index]" v-for="(item, index) in items" :key="index">{{item}}</tab-container-item>
         </tab-container>
          <small>监听事件（change-active）看右侧打印值</small>
+         
      </div>
 </template>
 <script>
@@ -27,6 +28,7 @@
     export default {
         data() {
             return {
+                activeIndex: 2,
                 items: [1,2,3,4,5,6]
             }
         },

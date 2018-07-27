@@ -35,6 +35,14 @@
             direction: {
                 type: String,
                 default: DIRECTION_H,
+            },
+            bounce: {            //滑到末尾开启弹性动画
+                type: Boolean,
+                default: false
+            },
+            stopDrag: {         //禁用拖动
+                type: Boolean,
+                default: false
             }
         },
         data() {
@@ -51,6 +59,7 @@
         watch: {
             activeItem(newVal, oldVal) {
                 if(newVal != this.currentActive) {
+                    this.currentActive = newVal
                     this.container && this.container.goToPage(newVal)
                 }
             }
@@ -69,21 +78,26 @@
                     scrollX: this.direction === DIRECTION_H,
                     scrollY: this.direction === DIRECTION_V,
                     momentum: false,
-                    bounce: false,
+                    bounce: this.bounce,
                     eventPassthrough,
                     snap:{
                         threshold: this.threshold,
                         speed: this.speed
                     },
                     stopPropagation: this.stopPropagation,
-                    click: true,
+                    click: false,
                     observeDOM: false
                 })
 
                 //默认滚动
                 this.container.goToPage(this.currentActive, 0, 0)
-                //监听滚动结束动作
-                this.container.on('scrollEnd', this._onScrollEnd)
+
+                if(this.stopDrag) {
+                    this.container.on('scroll', this._onScrollDisable()) //禁用tocuhstart touchmove touchend等事件
+                }else{
+                    //监听滚动结束动作
+                    this.container.on('scrollEnd', this._onScrollEnd)
+                }
             },
             _setContainerStyle() {
                 let allSize = 0
@@ -103,6 +117,9 @@
                     this.currentActive = tabIndex
                     this.$emit(EVENTS.CHANGE_ACTIVE, this.currentActive)
                 }
+            },
+            _onScrollDisable() {
+                this.container && this.container.disable()
             }
         },
          destroyed() {
@@ -119,7 +136,6 @@
     .ncf-tab-container {
         position: relative;
         overflow: hidden;
-        background: #ccc;
     }
     .ncf-tab-container-wrap{
         position: relative;
@@ -127,4 +143,5 @@
         overflow: hidden;
         white-space: nowrap;
     }
+    
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class='layout' style="text-align: center">
-        <small>可滚动tab</small>
+        <small>可拖动的tabContainer</small>
         <div class="tab_1">
             <tab-nav-bar 
                 :active-item="activeItem"
@@ -17,7 +17,7 @@
             </tab-container>
         </div>
         </br>
-        <small>不可滚动tab</small>
+        <small>不可滚动tabContainer</small>
         <div class="tab_2">
             <tab-nav-bar 
                 :active-item="activeItem_s"
@@ -35,6 +35,23 @@
                 <tab-container-item-simple class="item" :index="3">提现</tab-container-item-simple>
             </tab-container-simple>
         </div>
+        </br>
+        <small>不可拖动动tabContainer</small>
+        <div class="tab_2">
+            <tab-nav-bar 
+                :active-item="activeItem_d"
+                :tab-items="tabItems"
+                @tab-item-click="changeActive_d"
+            >
+            </tab-nav-bar>
+             <tab-container 
+                class="tabContainer"
+                :active-item="activeItem_d"
+                stop-drag
+            >
+                <tab-container-item class="item" v-for="(item, index) in tabItems" :key="index">{{item}}</tab-container-item>
+            </tab-container>
+        </div>
         <button type="button" name="button" @click="back" class="btn btn-blue">返回上一层</button>
     </div>
 </template>
@@ -50,6 +67,7 @@ export default {
     return {
       activeItem: 0,
       activeItem_s: 0,
+      activeItem_d: 0,
       tabItems: ["买入", "卖出", "收益", "提现"]
     };
   },
@@ -62,6 +80,9 @@ export default {
     changeActive(index) {
       this.activeItem = index;
       console.log(`滑动到第${index}个了`);
+    },
+    changeActive_d(index) {
+       this.activeItem_d = index;
     },
     changeActive_s(index) {
       this.activeItem_s = index;
@@ -80,11 +101,6 @@ export default {
 <style scoped>
 .layout {
   background: #f0f0f0;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 .btn {
   width: 100%;
@@ -98,10 +114,11 @@ export default {
   background: #49f;
   color: #fff;
   border: none;
-  position: fixed;
+  margin-top: 20px;
+  /* position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
 }
 .tab_1 {
   background: #fff;

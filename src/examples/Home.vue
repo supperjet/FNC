@@ -19,6 +19,9 @@
         <router-link tag="div" class="tab-item" to="/datepicker">
           <cell tip-show need-border-btm><span class="tab-link">datepicker</span><span slot="tips">日期选择</span></cell>
         </router-link>
+        <router-link tag="div" class="tab-item" to="/segpicker">
+          <cell tip-show need-border-btm><span class="tab-link">segPicker</span><span slot="tips">级联选择框</span></cell>
+        </router-link>
       </div>
     </panel>
     <br>
