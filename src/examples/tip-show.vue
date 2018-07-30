@@ -2,7 +2,7 @@
     <div class="tip">
         <ncf-button fixed @click.native="back">返回</ncf-button>
         <br>
-        <tip placement="top">
+        <tip placement="top" :content="myWords">
             <button>上</button>
         </tip>
         <br>
@@ -27,6 +27,17 @@
     import Tip from '../components/tip.vue'
     import ncfButton from '../components/button.vue'
     export default {
+        data() {
+            return {
+                myWords: 'ncf组件'
+            }
+        },
+        created() {
+            const self = this;
+            setTimeout(() => {
+                this.myWords = 'hahahhaha'
+            }, 2000)
+        },
         methods: {
             back() {
                 this.$router.push({

@@ -37,6 +37,9 @@
         <router-link tag="div" class="tab-item" to="/card">
           <cell tip-show need-border-btm><span class="tab-link">card</span><span slot="tips">卡片</span></cell>
         </router-link>
+         <router-link tag="div" class="tab-item" to="/actionBar">
+          <cell tip-show need-border-btm><span class="tab-link">actionBar</span><span slot="tips">操作条</span></cell>
+        </router-link>
       </div>
     </panel>
     <br>
@@ -99,6 +102,9 @@
         </router-link>
         <router-link tag="div" class="tab-item" to="/toast">
           <cell tip-show need-border-btm><span class="tab-link">toast</span><span slot="tips">轻提示</span></cell>
+        </router-link>
+         <router-link tag="div" class="tab-item" to="/noticeBar">
+          <cell tip-show need-border-btm><span class="tab-link">noticeBar</span><span slot="tips">全局通知</span></cell>
         </router-link>
         <router-link tag="div" class="tab-item" to="/bulletin">
           <cell tip-show need-border-btm><span class="tab-link">bulletin</span><span slot="tips">公告</span></cell>

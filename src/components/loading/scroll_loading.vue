@@ -1,11 +1,12 @@
 <template>
     <div class="scroll-loading">
-        <loading-icon :size="size"></loading-icon>
+        <component :is="iconName"></component>
         <div>{{txt}}</div>
     </div>
 </template>
 <script>
-    import LoadingIcon from './loading_icon.vue'
+    import ncfSpiner from './loading_icon.vue'
+    import ncfCircle from './loading_icon_svg.vue'
 
     const COMPONENT_NAME = 'scroll-loading'
 
@@ -20,9 +21,19 @@
                 type: Number | String,
                 default: 19
             },
+            loadingIconType: {
+                type: String,
+                default: 'ncf-spiner'
+            }
+        },
+        data() {
+            return {
+                iconName: this.loadingIconType
+            }
         },
         components: {
-            LoadingIcon
+            'ncf-spiner': ncfSpiner,
+            'ncf-circle': ncfCircle
         }
     }
 </script>

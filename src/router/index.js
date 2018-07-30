@@ -41,6 +41,7 @@ import repayMode from '../examples/repaymode.vue'
 import codeBox from '../components/codebox.vue'
 import BadgeShow from '../examples/badge-show.vue'
 import segPicker from '../examples/segPicker-show.vue'
+import noticeBar from '../examples/noticeBar-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -268,6 +269,11 @@ export default new Router({
       path: '/segpicker',
       name: 'segPicker',
       component: segPicker
+    },
+    {
+      path: '/noticeBar',
+      name: 'noticeBar',
+      component: noticeBar
     }
   ]
 })

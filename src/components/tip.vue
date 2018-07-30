@@ -13,7 +13,7 @@
             >
             <div class="ncf-tip-box">
                 <div class="ncf-tip-title" v-if="isTitle" v-html="title"></div>
-                <div class="ncf-tip-content" v-if="!$slots.content" v-html="content"></div>
+                <div class="ncf-tip-content" v-if="!$slots.content" v-html="cnt"></div>
                 <div class="ncf-tip-content" v-else><slot name="content"></slot></div>
                 <div :class="tipCls"
                      class="ncf-tip-arrow"
@@ -55,6 +55,7 @@ export default {
   },
   data() {
     return {
+      cnt: this.content,
       show: false,
       arrowLeft: 0,
       arrowTop: 0,
@@ -71,16 +72,22 @@ export default {
       }
     }
   },
+  watch: {
+    content(newVal, oldVal) {
+      this.cnt = newVal
+      setTimeout(()=>{
+        this.refrensh()
+      },20)
+    }
+  },
   methods: {
     hide() {
-      this.show = false;
+      this.show = false
     },
-    pop() {
-        if (this.show) { 
-            this.show = false;
-            this.$emit(EVENTS.HIDE)
-            return; 
-        }
+    refrensh() {
+      this.init()
+    },
+    init() {
         this.$tag = this.$refs.tag;
         this.$tip = this.$refs.tip;
         const tagW = this.$tag.offsetWidth || this.$tag.clientWidth;
@@ -118,7 +125,15 @@ export default {
                 this.arrowTop =  this.arrawOffsetTop;
                 break;
         }
-        this.show = true;
+    },
+    pop() {
+        if (this.show) { 
+            this.show = false
+            this.$emit(EVENTS.HIDE)
+            return
+        }
+        this.init()
+        this.show = true
     }
   }
 };
@@ -197,7 +212,7 @@ export default {
 }
 .ncf-tip-arrow-right::after {
   border-right-color: #fffbf3;
-  top:-4px;
+  top: -4px;
   left: 1px;
 }
 .ncf-tip-arrow-left {

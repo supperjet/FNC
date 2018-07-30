@@ -7,6 +7,8 @@
     <br>
     <scroll-loading></scroll-loading>
     <br>
+    <scroll-loading loading-icon-type="ncf-circle"></scroll-loading>
+    <br>
     <button @click="showLoading" class="btn-blue">显示</button>
     <button @click="back" class="btn-blue">返回上一层</button>
   </div>

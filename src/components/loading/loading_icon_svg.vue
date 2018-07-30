@@ -2,10 +2,10 @@
     <div class="loading_icon_svg">
         <svg class="loading_spinner" 
              viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"
-             :style="{'width': width + 'px', 'height': height+ 'px'}"
+             :style="{'width': size + 'px', 'height': size+ 'px'}"
         >
             <circle class="loading__path" fill="none"
-                    :stroke="stroke"
+                    :stroke="color"
                     :stroke-width="line_w" stroke-linecap="round"
                     cx="33" cy="33" r="30"/>
         </svg>
@@ -15,21 +15,17 @@
     const COMPONENT_NAME = 'loading-svg'
     export default {
         props: {
-            stroke: {
+            color: {
                 type: String,
-                default: '#000'
+                default: '#444'
             },
-            width: {
+            size: {
                 type: Number,
-                default:  18
-            },
-            height: {
-                type: Number,
-                default:  18
+                default:  13
             },
             line_w: {
                 type: Number,
-                default: 3
+                default: 5
             }
         }
     }
@@ -38,10 +34,12 @@
 .loading_icon_svg {
     display: block;
     text-align: center;
+    margin-right: 5px;
 }
 .loading_spinner {
+    margin-top: 2px;
     animation: loading-rotator 1.5s linear infinite;
-    -webkit-animation: loading-rotator 1.5s linear infinite;       
+    -webkit-animation: loading-rotator 1.5s linear infinite;  
 }
 .loading__path {
     stroke-dasharray: 187;
