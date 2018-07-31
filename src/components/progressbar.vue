@@ -14,8 +14,6 @@
   </div>
 </template>
 <script>
-import Animate from '../common/animate.js'
-
 const COMPONENT_NAME = 'ncf-progress-bar'
 
 export default {

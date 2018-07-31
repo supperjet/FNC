@@ -70,7 +70,7 @@
         props: {
             mode: {
                 type: String,
-                default: 'powerful'
+                default: ''
             },
             disorder: {
                 type: Boolean,
