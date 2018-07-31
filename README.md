@@ -45,7 +45,7 @@ npm run build --report
 24. progressBar
 25. number
 26. keyboard
-27. codebox(完善中)
+27. codebox
 28. badge
 29. segPicker
 30. noticeBar

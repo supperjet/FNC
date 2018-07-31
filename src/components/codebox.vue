@@ -4,13 +4,13 @@
             <template>
                 <span 
                     class="box-item flex flex-align-center flex-pack-center"
-                    v-for="i in num"
+                    v-for="i in (+num)"
                     :key="i"
                     :class="{'is-active': (i === code.length+1) && focused }"
                 >
                     <template v-if="code.charAt(i-1)">
                         <template v-if="mask">
-                            <i class="md-codebox-dot">.</i>
+                            <i class="md-codebox-dot"></i>
                         </template>
                         <template v-else>
                             {{code.charAt(i-1)}}
@@ -22,23 +22,7 @@
                 </span>
             </template>
         </div>
-        <template v-if="kbstyle == 'powerful'">
-            <ncf-keyboard 
-                ref="codeboxkb" 
-                mode="powerful" 
-                :disorder="disorder" 
-                @enter="modifyCode" 
-                @delete="modifyCode" 
-                @confirm="confirmCode"
-            ></ncf-keyboard>
-        </template>
-        <template v-else>
-            <ncf-keyboard 
-                ref="codeboxkb" 
-                @enter="modifyCode" 
-                @delete="modifyCode"
-            ></ncf-keyboard>
-        </template>
+        <ncf-keyboard ref="codeboxkb" @enter="modifyCode" @delete="modifyCode"></ncf-keyboard>
     </div>
 </template>
 
@@ -46,14 +30,13 @@
     import NcfKeyboard from './keyboard.vue'
 
     const COMPONENT_NAME = 'code-box'
+    const EVENTS = {
+        INPUT_DONE: 'input-done'
+    }
 
     export default {
         name: COMPONENT_NAME,
         props: {
-            value: {
-                type: String,
-                default: ''
-            },
             num: {
                 type: Number | String,
                 default: 4
@@ -65,28 +48,19 @@
             autoFocus: {
                 type: Boolean,
                 default: true
-            },
-            mode: {
-                type: String,
-                default: ''
-            },
-            disorder: {
-                type: Boolean,
-                default: false
             }
         },
         data() {
             return {
                 code: '',
-                focused: this.autoFocus,
-                kbstyle: this.mode
+                focused: this.autoFocus
             }
         },
         watch: {
-            value: {
-                immediate: true,
-                handler(newVal, oldVal) {
-                    this.code = newVal
+            code(newVal, oldVal) {
+                if(newVal.length == this.num) {
+                    this.$refs.codeboxkb.hide();
+                    this.$emit(EVENTS.INPUT_DONE, newVal)
                 }
             }
         },
@@ -97,19 +71,15 @@
         },
         methods: {
             focus() {
-                if(!this.focused) {
-                    this.focused = true
+                this.focused = !this.focused
+                if(this.code.length < this.num) {
                     this.$refs.codeboxkb.show()
                 }
             },
             modifyCode(code) {
                 if(this.code.length < this.num) {
                     this.code = code 
-                    console.log(code)
                 }
-            },
-            confirmCode(code) {
-                console.log(code)
             }
         },
         components: {
@@ -125,24 +95,31 @@
        
     }
     .ncf-code-box .box-item{
-        width: 30px;
-        height: 30px;
-        border: 1px solid #000;
+        width: 35px;
+        height: 35px;
+        color: #333;
+        border: 1px solid #333;
         text-align: center;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
     }
-    .ncf-code-box .box-item:not(:first-child){
-         border-left: none;
+    .ncf-code-box .box-item:not(:first-child) {
+        border-left: none;
+    }
+    .ncf-code-box .box-item .md-codebox-dot {
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 100%;
     }
     .md-codebox-blink {
         height: 20px;
         width: 1px;
-        background-color: red;
+        background-color: #ed4e39;
         animation: flash steps(2) 1s infinite;
     }
-
     @keyframes flash {
         from{ opacity: 0}
         to{ opacity: 1}
     }
-      
 </style>

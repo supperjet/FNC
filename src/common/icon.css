@@ -1,3 +1,4 @@
+
 .arrow-right{
     width: 10px;
     height: 10px;
@@ -6,6 +7,17 @@
     border-right: 1px solid #CCC;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    transition: transform .2s;
+    -webkit-transition: transform .2s;
+}
+.arrow-down{
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-bottom: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
     transition: transform .2s;
     -webkit-transition: transform .2s;
 }
