@@ -1,46 +1,57 @@
 <template>
     <transition name="kb-slide">
-        <div class="ncf-kb-container flex" :class="mode" v-show="isVisible">
-            <div class="kb-number" :class="{'flex-3': isPower, 'flex-1': !isPower}">
-                <ul class="kb-number-list">
-                    <li 
-                        class="kb-number-item border-bottom-1px"
-                        v-for="n in 9" :key="n-1"
-                        @click.stop="_keyboardItemClick($event, numberStack[n-1])"
-                    >
-                        <ncf-rect mode="normal">{{numberStack[n-1]}}</ncf-rect>
-                    </li>
-                    <template v-if="isPower">
-                        <li class="kb-number-item"  @click.stop="_keyboardItemClick($event, '.')">
-                            <ncf-rect mode="normal">.</ncf-rect>
-                        </li>
-                        <li class="kb-number-item"  @click.stop="_keyboardItemClick($event, numberStack[9])">
-                            <ncf-rect mode="normal">{{numberStack[9]}}</ncf-rect>
-                        </li>
-                        <li class="kb-number-item"  @click.stop="_hideKeyboard">
-                            <ncf-rect mode="normal"><div class="keyboard-hide kb-icon">隐藏</div></ncf-rect>
-                        </li>
-                    </template>
-                    <template v-else>
-                        <li class="kb-number-item no-bg keyboard-hide kb-icon border-bottom-1px">空</li>
-                        <li class="kb-number-item border-bottom-1px" @click="_keyboardItemClick($event, numberStack[9])">
-                            <ncf-rect mode="normal">{{numberStack[9]}}</ncf-rect>
-                        </li>
-                        <li class="kb-number-item border-bottom-1px no-bg delete" @click="_deleteClick($event)">
-                            <div class="keyboard-del-simple kb-icon">删除</div>
-                        </li>
-                    </template>
-                </ul>
+        <div class="ncf-kb-container flex flex-v" :class="mode" v-show="isVisible">
+            <div class="kb-header border-bottom-1px flex flex-h flex-pack-center flex-align-center" 
+                 v-if="hasHeader"
+                 @click.stop="_hideKeyboard"
+            >
+                <slot>
+                   <span>360金融·你财富专用键盘</span>
+                   <i class="arrow-down kb-down"></i>
+                </slot>
             </div>
-            <div class="kb-operate flex-1" v-if="isPower">
-                <ul class="kb-operate-list">
-                    <li class="kb-operate-item border-bottom-1px delete" @click.stop="_deleteClick($event)">
-                        <ncf-rect mode="normal"><div class="keyboard-del kb-icon">删除</div></ncf-rect>
-                    </li>
-                    <li class="kb-operate-item confirm" @click.stop="_confirmClick($event)">
-                        <ncf-rect bg-color="#ff8640">确认</ncf-rect>
-                    </li>
-                </ul>
+            <div class="flex" :class="{'flex-h': isPower}">
+                <div class="kb-number" :class="{'flex-3': isPower, 'flex-1': !isPower}">
+                    <ul class="kb-number-list">
+                        <li 
+                            class="kb-number-item border-bottom-1px"
+                            v-for="n in 9" :key="n-1"
+                            @click.stop="_keyboardItemClick($event, numberStack[n-1])"
+                        >
+                            <ncf-rect mode="normal">{{numberStack[n-1]}}</ncf-rect>
+                        </li>
+                        <template v-if="isPower">
+                            <li class="kb-number-item"  @click.stop="_keyboardItemClick($event, '.')">
+                                <ncf-rect mode="normal">.</ncf-rect>
+                            </li>
+                            <li class="kb-number-item"  @click.stop="_keyboardItemClick($event, numberStack[9])">
+                                <ncf-rect mode="normal">{{numberStack[9]}}</ncf-rect>
+                            </li>
+                            <li class="kb-number-item"  @click.stop="_hideKeyboard">
+                                <ncf-rect mode="normal"><div class="keyboard-hide kb-icon">隐藏</div></ncf-rect>
+                            </li>
+                        </template>
+                        <template v-else>
+                            <li class="kb-number-item no-bg keyboard-hide kb-icon border-bottom-1px">空</li>
+                            <li class="kb-number-item border-bottom-1px" @click="_keyboardItemClick($event, numberStack[9])">
+                                <ncf-rect mode="normal">{{numberStack[9]}}</ncf-rect>
+                            </li>
+                            <li class="kb-number-item border-bottom-1px no-bg delete" @click="_deleteClick($event)">
+                                <div class="keyboard-del-simple kb-icon">删除</div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div class="kb-operate flex-1" v-if="isPower">
+                    <ul class="kb-operate-list">
+                        <li class="kb-operate-item border-bottom-1px delete" @click.stop="_deleteClick($event)">
+                            <ncf-rect mode="normal"><div class="keyboard-del kb-icon">删除</div></ncf-rect>
+                        </li>
+                        <li class="kb-operate-item confirm" @click.stop="_confirmClick($event)">
+                            <ncf-rect bg-color="#ff8640">确认</ncf-rect>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </transition>
@@ -64,6 +75,10 @@
             disorder: {
                 type: Boolean,
                 default: false
+            },
+            hasHeader: {
+                type: Boolean,
+                default: true
             }
         },
         created() {
@@ -120,6 +135,21 @@
     @import '../common/common.css';
     @import '../common/icon.css';
 
+    .kb-header{
+        position: relative;
+        text-align: center;
+        padding: 5px;
+        color: #bbb;
+        font-size: 12px;
+        font-weight: 200;
+        background: #fbfbfb;
+    }
+    .kb-header .kb-down {
+        margin-left: 10px;
+        width: 8px;
+        height: 8px;
+        transform: translateY(-3px) rotate(45deg);
+    }
     .kb-slide-enter,
     .kb-slide-leave-active{
         transform: translate3d(0, 100%, 0)
@@ -183,5 +213,4 @@
     .kb-icon.keyboard-del-simple{
         background-size: 15%;
     }
-
 </style>

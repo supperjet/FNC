@@ -4,20 +4,27 @@
         <div style="margin:15px">
             <h5>纯数字类型</h5>
             <small>纯数字，用于密码、验证码等</small>
-            <ncf-button @btn-event="showKB_1">唤起键盘</ncf-button>
+            <ncf-button @btn-event="showKB_1">纯数字类型</ncf-button>
         </div>
          <div style="margin:15px">
             <h5>金额类型</h5>
             <small>带小数点、确认键，用于金额和价格输入等</small>
-            <ncf-button @btn-event="showKB_2">唤起键盘</ncf-button>
+            <ncf-button @btn-event="showKB_2">金额类型</ncf-button>
         </div>
          <div style="margin:15px">
             <h5>数字乱序</h5>
-            <ncf-button @btn-event="showKB_3">唤起键盘</ncf-button>
+            <ncf-button @btn-event="showKB_3">数字乱序</ncf-button>
+        </div>
+        <div style="margin:15px">
+            <h5>自定义头部内容</h5>
+            <ncf-button @btn-event="showKB_4">自定义头部内容</ncf-button>
         </div>
         <p class="kb-ctn"><span>NUM:</span><span>{{content_1}}</span></p>
         <key-board ref="keyboard_1" :mode="mode" @enter="showContent" @delete="showContent" @confirm="confirmCtn"></key-board>
         <key-board ref="keyboard_2" :mode="mode" disorder @enter="showContent" @delete="showContent" @confirm="confirmCtn"></key-board>
+        <key-board ref="keyboard_3" @enter="showContent" @delete="showContent" @confirm="confirmCtn">
+            <div>自定义头部内容</div>
+        </key-board>
     </div>
 </template>
 <script>
@@ -44,6 +51,9 @@
             showKB_3() {
                 this.mode = 'powerful'
                 this.$refs.keyboard_2.show()
+            },
+            showKB_4() {
+                this.$refs.keyboard_3.show()
             },
             showContent(ctn) {
                 this.content_1 = ctn
