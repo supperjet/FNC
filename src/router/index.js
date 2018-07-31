@@ -19,7 +19,7 @@ import InputShow from '../examples/input-show.vue'
 import Sketeon from '../components/skeletion.vue'
 import BulletinShow from '../examples/bulletin-show.vue'
 import SlideShow from '../examples/slide-show.vue'
-import ProgressBar from '../components/progressbar.vue'
+import ProgressBar from '../examples/progressbar-show.vue'
 import Radio from '../examples/radio-show.vue'
 import Checkbox from '../examples/checkbox-show.vue'
 import Button from '../examples/button-show.vue'
@@ -274,6 +274,11 @@ export default new Router({
       path: '/noticeBar',
       name: 'noticeBar',
       component: noticeBar
+    },
+    {
+      path: '/progressBar',
+      name: 'ProgressBar',
+      component: ProgressBar
     }
   ]
 })

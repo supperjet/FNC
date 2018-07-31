@@ -42,7 +42,7 @@ npm run build --report
 21. scroll
 22. panel
 23. rect
-24. progressBar(完善中)
+24. progressBar
 25. number
 26. keyboard
 27. codebox(完善中)

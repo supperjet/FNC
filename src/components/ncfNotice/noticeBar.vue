@@ -4,6 +4,7 @@
             <div class="container flex flex-h flex-pack-justify flex-align-center"
                  :style="{'background': bgColor}"
             >
+                <slot name="icon"></slot>
                 <template>
                     <div class="txt" v-if="!$slots.content" v-html="content"></div>
                     <div class="txt" v-else>
@@ -73,13 +74,8 @@
         }
     }
 </script>
-<style>
+<style scoped>
     @import '../../common/common.css';
-    @import '../../common/icon.css';
-
-    .ncf-notice-bar {
-
-    }
     .ncf-notice-bar .container {
         color: #fff;
         padding: 5px 10px;
