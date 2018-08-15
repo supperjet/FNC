@@ -28,6 +28,11 @@
             <ncf-process-bar line-color="#e40475"></ncf-process-bar>
         </div>
          <br>
+        <small>渐变色（lineColor="linear-gradient(to right, #f37ff4,#ed4e39)"）</small>
+        <div style="width:80%">
+            <ncf-process-bar value="90" line-color="linear-gradient(to right, #f37ff4,#ed4e39)"></ncf-process-bar>
+        </div>
+         <br>
         <small>不要动画（isAnimate=false）</small>
         <div style="width:80%">
             <ncf-process-bar :is-animated="ani"></ncf-process-bar>
@@ -35,10 +40,16 @@
         <br>
         <small>两端插入内容(slot = 'start'&&'end')</small>
         <div style="width:80%">
-            <ncf-process-bar :is-animated="ani">
+            <ncf-process-bar is-animated>
                 <div slot="start">0</div>
                 <div slot="end">100</div>
             </ncf-process-bar>
+        </div>
+        <br>
+        <div>显示tag(isFlag=true)</div>
+        <br>
+        <div style="width:80%">
+            <ncf-process-bar is-animated is-flag lineColor="#ed4e39" value="44"></ncf-process-bar>
         </div>
     </div>
 </template>
