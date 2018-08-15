@@ -48,7 +48,7 @@
                             <ncf-rect mode="normal"><div class="keyboard-del kb-icon">删除</div></ncf-rect>
                         </li>
                         <li class="kb-operate-item confirm" @click.stop="_confirmClick($event)">
-                            <ncf-rect bg-color="#ff8640">确认</ncf-rect>
+                            <ncf-rect bg-color="#15c25b">确认</ncf-rect>
                         </li>
                     </ul>
                 </div>

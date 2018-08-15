@@ -26,11 +26,15 @@
         <button @click="dissmiss">{{disableActive ? '解除禁用' : '开启禁用'}}</button>
       </div>
       <br>
+
        
       <ncf-button fixed @click.native="goBack">返回</ncf-button>
 
-      <small>normal状态的button</small>
+      <small>mode="normal"状态的button</small>
       <ncf-button mode="normal">normal</ncf-button>
+
+      <small>mode="green"状态的button</small>
+      <ncf-button mode="green">绿色按钮</ncf-button>
   </div>
 </template>
 <script>

@@ -5,6 +5,8 @@
 </template>
 <script>
 const COMPONENT_NAME = 'ncf-rect'
+const colorGroup = ['normal', 'primary', 'green']
+
 export default {
   name: COMPONENT_NAME,
   props: {
@@ -26,8 +28,12 @@ export default {
       if(this.disabled) {
         return 'disabled';
       }else{
-        if(this.mode) {
-           return (this.mode == 'normal') ? 'normal' : 'primary';
+        if(colorGroup.indexOf(this.mode) != -1) {
+          return this.mode
+        }else{
+          if(this.mode) {
+            console.warn('mode: 必须是[normal, primary, green]')
+          }
         }
       }
     },
@@ -74,6 +80,16 @@ export default {
   .rect.primary:active {
       background: linear-gradient(10deg,#dd533d,#d94437);
       background: -webkit-linear-gradient(10deg,#dd533d,#d94437);
+      -webkit-tap-highlight-color:transparent;
+  }
+  .rect.green{
+      color: #fff;
+      background: linear-gradient(10deg,#2ed058,#15c25b);
+      background: -webkit-linear-gradient(10deg,#2ed058,#15c25b);
+  }
+  .rect.green:active {
+      background: linear-gradient(10deg,#209c52,#209c52);
+      background: -webkit-linear-gradient(10deg,#209c52,#209c52);
       -webkit-tap-highlight-color:transparent;
   }
   .rect.disabled{
