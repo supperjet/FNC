@@ -22,7 +22,6 @@
             </div>
         </div>
     </div>
- 
 </template>
 <script>
 const COMPONENT_NAME = "ncf-tip";
@@ -152,12 +151,12 @@ export default {
   position: relative;
   max-width: 260px;
   min-width: 65px;
-  background-color: #fffbf3;
+  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ff8c1a;
+  border: 1px solid #fff;
   border-radius: 6px;
   box-sizing: border-box;
-  box-shadow: 0 1px 6px hsla(0, 0%, 39%, 0.2);
+  box-shadow: 0 1px 10px hsla(0, 0%, 39%, 0.3);
   font-size: 12px;
 }
 .ncf-tip-title {
@@ -169,7 +168,7 @@ export default {
 }
 .ncf-tip-content {
   padding: 8px 15px;
-  color: #ff8c1a;
+  /* color: #ff8c1a; */
   word-break: break-all;
 }
 .ncf-tip-arrow {
@@ -190,46 +189,38 @@ export default {
 
 .ncf-tip-arrow-top {
   border-bottom-width: 0;
-  border-top-color: #ff8c1a;
+  border-top-color: #fff;
   bottom: -5px;
 }
 .ncf-tip-arrow-top:after {
-  border-top-color: #fffbf3;
+  border-top-color: #fff;
   bottom: -3px;
 }
 .ncf-tip-arrow-bottom {
   border-top-width: 0;
-  border-bottom-color: #ff8c1a;
+  border-bottom-color: #fff;
   top: -5px;
 }
 .ncf-tip-arrow-bottom::after {
-  border-bottom-color: #fffbf3;
+  border-bottom-color: #fff;
   top: -3px;
 }
 .ncf-tip-arrow-right {
   border-left-width: 0;
-  border-right-color: #ff8c1a;
+  border-right-color: #fff;
 }
 .ncf-tip-arrow-right::after {
-  border-right-color: #fffbf3;
+  border-right-color: #fff;
   top: -4px;
   left: 1px;
 }
 .ncf-tip-arrow-left {
   border-right-width: 0;
-  border-left-color: #ff8c1a;
+  border-left-color: #fff;
 }
 .ncf-tip-arrow-left::after {
-  border-left-color: #fffbf3;
+  border-left-color: #fff;
   right: -3px;
   top: -4px;
-}
-.ncf-tip-zoom-enter-active {
-  animation: tip-in 0.4s;
-  transform: translateZ(0);
-}
-.ncf-tip-zoom-leave-active {
-  animation: tip-out 0.2s;
-  transform: translateZ(0);
 }
 </style>
