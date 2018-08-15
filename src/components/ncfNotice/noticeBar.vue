@@ -3,7 +3,7 @@
         <ncf-popup position="top" :hasMask="false" ref="noticePop">
             <div class="container flex flex-h flex-pack-justify flex-align-center"
                  :style="{'background': bgColor}"
-            >
+            >   
                 <slot name="icon"></slot>
                 <template>
                     <div class="txt" v-if="!$slots.content" v-html="content"></div>
@@ -85,5 +85,7 @@
     .ncf-notice-bar .iconClose {
         color: #f0f0f0;
         font-size: 16px;
+        transform: translateY(-2px);
+        -webkit-transform: translateY(-2px);
     }
 </style>
