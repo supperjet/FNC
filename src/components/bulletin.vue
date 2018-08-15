@@ -1,5 +1,5 @@
 <template>
-  <div class="bulletin" ref="bulletin" v-if="isVisible" @click="hrefTo">
+  <div class="bulletin" ref="bulletin" v-if="isVisible" @click="url&&hrefTo()">
         <div class="trumpet"><i class="icon"></i></div>
         <div class="content">
             <div ref="bulletinCnt_1" v-html="content" class="ctn"></div>
@@ -29,7 +29,7 @@ export default {
     },
     speed: {
       type: Number,
-      default: 2
+      default: 1
     },
     swipable: {
       type: Boolean,
@@ -88,7 +88,6 @@ export default {
       if (self.swipable) {
         (function moveFrame() {
           window.requestAnimationFrame(moveFrame);
-          
           self.action();
         })()
       }else{
@@ -178,7 +177,7 @@ export default {
         position: absolute;
         left: 100%;
         z-index: 9;
-        line-height: 35px;
+        line-height: 2.2rem;
         color: #f38d27;
         font-weight: 200;
         overflow: hidden;

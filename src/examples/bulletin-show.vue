@@ -7,6 +7,17 @@
               :speed="bulletinOption.speed"
     >
     </bulletin>
+    <br>
+    <bulletin
+        content="愿你三冬暖，愿你春不寒"  
+    >
+    </bulletin>
+    <br>
+     <bulletin
+        content="愿你三冬暖，愿你春不寒" 
+        :swipable="false" 
+    >
+    </bulletin>
     <div class="control">
       <button type="button" name="button" @click="setGap" class="btn">设置滚动文字间隔</button>
       <button type="button" name="button" @click="setSpeed" class="btn">设置速度</button>
@@ -29,14 +40,14 @@ export default {
         gap: 100,
         content: '',
         speed: 1,
-        url: '',
+        url: '/',
         swipable: true
       }
     }
   },
   created() {
     setTimeout(() => {
-      this.bulletinOption.content = '愿你三冬暖，愿你春不寒,'
+      this.bulletinOption.content = '愿你三冬暖，愿你春不寒,愿你三冬暖，愿你春不寒,愿你三冬暖，愿你春不寒,'
     },1000)
   },
   methods: {
