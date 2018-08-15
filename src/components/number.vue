@@ -1,6 +1,6 @@
 <template>
   <span class="ncf-number">
-      {{ formatValue | doPrecision(precision, isRoundUp) | doFormat(isSeparator) }}
+      {{ formatValue | doPrecision(precision, isRoundUp) | doFormat(isSeparator) | doPercent(isPercent)}}
   </span>
 </template>
 <script>
@@ -28,6 +28,10 @@
                 default: false,
             },
             isAnimated: {
+                type: Boolean,
+                default: false,
+            },
+            isPercent: {
                 type: Boolean,
                 default: false,
             },
@@ -71,6 +75,10 @@
             doFormat(value, isSeparator) {
                 if(!isSeparator) return value;
                 return numberWithCommas(value)
+            },
+            doPercent(value, isPercent) {
+                if(!isPercent) return value;
+                return `${value}%`
             }
         }
     }
