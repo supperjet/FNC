@@ -38,7 +38,7 @@ npm run build --report
 9. picker   （选择）
 10. datepicker (日期选择))
 11. button  
-12. tip （指示器）
+12. tip （气泡提示）
 13. slide   （幻灯片）
 14. radio   （单选框）
 15. checkbox    （多选框）
