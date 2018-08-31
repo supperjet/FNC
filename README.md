@@ -1,6 +1,6 @@
 <div align=center>
 
-![](./static/switch.png)
+![](./static/switch.svg)
 
 # FNC(金融)
 <div align=left>
