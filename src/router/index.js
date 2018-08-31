@@ -42,6 +42,9 @@ import codeBox from '../examples/codebox-show.vue'
 import BadgeShow from '../examples/badge-show.vue'
 import segPicker from '../examples/segPicker-show.vue'
 import noticeBar from '../examples/noticeBar-show.vue'
+import Dropdown from '../components/dropdown.vue'
+import StepBar from '../components/stepBar.vue'
+import Sticky from '../examples/stickyTop.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -279,6 +282,21 @@ export default new Router({
       path: '/progressBar',
       name: 'ProgressBar',
       component: ProgressBar
+    },
+    {
+      path: '/dropdown',
+      name: 'dropdown',
+      component: Dropdown
+    },
+    {
+      path: '/step',
+      name: 'StepBar',
+      component: StepBar
+    },
+    {
+      path: '/sticky',
+      name: 'Sticky',
+      component: Sticky
     }
   ]
 })

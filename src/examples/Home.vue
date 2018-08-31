@@ -22,6 +22,9 @@
         <router-link tag="div" class="tab-item" to="/segpicker">
           <cell tip-show need-border-btm><span class="tab-link">segPicker</span><span slot="tips">级联选择框</span></cell>
         </router-link>
+         <router-link tag="div" class="tab-item" to="/dropdown">
+          <cell tip-show need-border-btm><span class="tab-link">dropdown</span><span slot="tips">下拉选择框</span></cell>
+        </router-link>
       </div>
     </panel>
     <br>
@@ -73,6 +76,9 @@
         <router-link tag="div" class="tab-item" to="/scroll">
           <cell tip-show need-border-btm><span class="tab-link">scroll</span><span slot="tips">上拉加载下拉刷新</span></cell>
         </router-link>
+         <router-link tag="div" class="tab-item" to="/sticky">
+          <cell tip-show need-border-btm><span class="tab-link">sticky</span><span slot="tips">吸顶工具</span></cell>
+        </router-link>
       </div>
     </panel>
     <br>
@@ -105,6 +111,9 @@
         </router-link>
          <router-link tag="div" class="tab-item" to="/noticeBar">
           <cell tip-show need-border-btm><span class="tab-link">noticeBar</span><span slot="tips">全局通知</span></cell>
+        </router-link>
+        <router-link tag="div" class="tab-item" to="/step">
+          <cell tip-show need-border-btm><span class="tab-link">stepBar</span><span slot="tips">步骤条</span></cell>
         </router-link>
         <router-link tag="div" class="tab-item" to="/bulletin">
           <cell tip-show need-border-btm><span class="tab-link">bulletin</span><span slot="tips">公告</span></cell>
