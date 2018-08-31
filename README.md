@@ -1,4 +1,6 @@
-<div align=center>![](./static/switch.svg)
+<div align=center>
+
+![](./static/switch.svg)
 
 # FNC(金融)
 你财富前端组件库
