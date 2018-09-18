@@ -17,7 +17,7 @@
         <tab-nav-bar-move
             :tab-items="tabItems"
             :line-pading="14"
-            active-item="2"
+            :active-item="activeItem"
             @tab-item-click="switchPage_v"
         ></tab-nav-bar-move>
         <br>
@@ -90,6 +90,7 @@
     export default{
         data(){
             return {
+                activeItem: 2,
                 tabItems:['买入', '卖出', '收益', '提现'],
                 tabItems2:['买入', {name:'卖出', disabled:true}, '收益','提现']
             }
