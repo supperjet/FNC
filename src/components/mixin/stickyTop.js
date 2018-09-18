@@ -1,15 +1,14 @@
-let stickyAction
+let stickyAction;
 
 const getScrollTop = () => {
-    var scrollTop=0  
+    var scrollTop=0;  
     if (document.documentElement && document.documentElement.scrollTop){  
-        scrollTop=document.documentElement.scrollTop
+        scrollTop=document.documentElement.scrollTop;  
     }else {  
         scrollTop=document.body.scrollTop;  
     }  
-    return scrollTop 
+    return scrollTop;  
 }
-
 const getOffsetTop = (el) => {
     return el.offsetTop || el.getBoundingClientRect().top
 }

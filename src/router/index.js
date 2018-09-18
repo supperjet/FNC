@@ -42,7 +42,9 @@ import codeBox from '../examples/codebox-show.vue'
 import BadgeShow from '../examples/badge-show.vue'
 import segPicker from '../examples/segPicker-show.vue'
 import noticeBar from '../examples/noticeBar-show.vue'
-import Dropdown from '../components/dropdown.vue'
+import Dropdown from '../examples/dropdown/index.vue'
+import dropDemo1 from '../examples/dropdown/demo_1.vue'
+import dropDemo2 from '../examples/dropdown/demo_2.vue'
 import StepBar from '../components/stepBar.vue'
 import Sticky from '../examples/stickyTop.vue'
 // 业务
@@ -286,7 +288,17 @@ export default new Router({
     {
       path: '/dropdown',
       name: 'dropdown',
-      component: Dropdown
+      component: Dropdown,
+      children: [
+        {
+          path: 'demo1',
+          component: dropDemo1
+        },
+        {
+          path: 'demo2',
+          component: dropDemo2
+        }
+      ]
     },
     {
       path: '/step',
