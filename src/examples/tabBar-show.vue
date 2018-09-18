@@ -1,16 +1,37 @@
 <template>
     <div class="layout">
-        <p>基础tab-bar(tabItems)</p>
+        <h2>下划线可滚动（tabNavBarMove）</h2>
+        <tab-nav-bar-move
+            :tab-items="tabItems"
+            @tab-item-click="switchPage_v"
+        ></tab-nav-bar-move>
+        <br>
+        <p>linePadding:指定下划线两侧的padding</p>
+        <tab-nav-bar-move
+            :tab-items="tabItems"
+            :line-pading="14"
+            @tab-item-click="switchPage_v"
+        ></tab-nav-bar-move>
+        <br>
+        <p>activeItem:设置默认激活项</p>
+        <tab-nav-bar-move
+            :tab-items="tabItems"
+            :line-pading="14"
+            active-item="2"
+            @tab-item-click="switchPage_v"
+        ></tab-nav-bar-move>
+        <br>
+        <h2>下划线不可滚动（tab-bar）</h2>
         <tab-nav-bar 
             :tab-items="tabItems"
             @tab-item-click="switchPage_v"
         >
         </tab-nav-bar>
-        <br>
+         <br>
         <p>指定下划线长度（lw）</p>
         <tab-nav-bar 
             :tab-items="tabItems"
-            :lw="20"
+            :lw="25"
         >
         </tab-nav-bar>
          <br>
@@ -64,11 +85,12 @@
 <script>
     import TabNavBar from '../components/tab/tab-nav-bar.vue'
     import Toast from '../components/toast/index.js'
+    import TabNavBarMove from '../components/tab/tab-nav-bar-move.vue'
 
     export default{
         data(){
             return {
-                tabItems:['买入', '卖出', '收益','提现'],
+                tabItems:['买入', '卖出', '收益', '提现'],
                 tabItems2:['买入', {name:'卖出', disabled:true}, '收益','提现']
             }
         },
@@ -81,7 +103,8 @@
             }
         },
         components: {
-            TabNavBar
+            TabNavBar,
+            TabNavBarMove
         }
     }
 </script>
