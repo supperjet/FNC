@@ -71,6 +71,7 @@ npm run build --report
 ### 6、小工具
 | 名称 | 功能描述 | 状态 |
 | ------ | ------ | ------ |
+| calendar | 日历 | 已完成 |
 | loading | 加载动画，具体功能看demo, 支持命令式引入 | 已完成 |
 | toast | 轻提示，具体功能看demo | 已完成 |
 | noticeBar | 全局通知 | 已完成 |
