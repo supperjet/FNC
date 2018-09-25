@@ -17,11 +17,6 @@
 import DatePicker from '../../components/datepicker.vue'
 
 export default {
-  name: 'date-picker-demo',
-  /* DELETE */
-  title: '日期选择',
-  describe: '2013/9/9 - 2020/9/9',
-  /* DELETE */
   components: {
     DatePicker,
   },
