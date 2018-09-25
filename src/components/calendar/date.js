@@ -92,15 +92,23 @@
         let todayDate = this.formatDate(new Date(), 'Y/M/D');  //今日
         for(let i=0; i<num; i++) {
             let day = (i+1) < 10 ? `0${i+1}` : (i+1);
-            const _date = `${year}/${month}/${day}`;
-            arr.push({
+            let _date = `${year}/${month}/${day}`;
+
+            let dayConfig = {
                 id: i+1,
                 date: _date,
                 isToday: todayDate == _date,
                 isCurrMonth: true,
-                isStart: dStart ? (dStart == _date) : false,
-                isEnd: dEnd ? (dEnd == _date) : false
-            })
+                isStart: false,
+                isEnd: false
+            }
+            if(dEnd.indexOf(_date) != -1) {
+                dayConfig.isEnd = true
+            }
+            if(dStart.indexOf(_date) != -1) {
+                dayConfig.isStart = true
+            }
+            arr.push(dayConfig)
         }
         return arr
     },
@@ -123,8 +131,8 @@
                 date: _date,
                 isToday: false,
                 isCurrMonth: false,
-                isStart: dStart ? (dStart == _date) : false,
-                isEnd: dEnd ? (dEnd == _date) : false
+                isStart: false,
+                isEnd: false
             })
         }
         return arr;
@@ -146,8 +154,8 @@
                 date: _date,
                 isToday: false,
                 isCurrMonth: false,
-                isStart: dStart ? (dStart == _date) : false,
-                isEnd: dEnd ? (dEnd == _date) : false
+                isStart: false,
+                isEnd: false
             })
         }
         return arr;

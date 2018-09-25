@@ -33,36 +33,50 @@
     import dateUtil from './date.js'
 
     const COMPONENT_NAME = 'ncf-calendar'
+
     const EVENTS = {
+        NEXT_MONTH: 'next-month',
+        PREV_MONTH: 'prev-month',
         DATE_TIME_CHANGE: 'date-time-change',
         DAY_ITEM_CHANGE: 'day-item-change'
     }
+
     export default {
         name: COMPONENT_NAME,
         props: {
-            minDate: {
-                type: Date
-            },
-            maxDate: {
-                type: Date
-            },
-            defaultDate: {
+            defaultDate: {          //默认显示时间
                 type: Date,
                 default: function() {
                     return new Date()
                 }
             },
-            startAndEndDate: {
+            dateRange: {            //日期范围
                 type: Array,
                 default: function() {
-                    return ['', '']
+                    return []
                 }
             },
-            todayText: {
+            firstTypeDate: {        //状态1
+                type: Array,
+                default: function() {
+                    return []
+                }
+            },
+            secondTypeDate: {       //状态2
+                type: Array,
+                default: function() {
+                    return []
+                }
+            },  
+            todayText: {           //今日显示文字  
                 type: String,
                 default: '今'
             },
-            unitText: {
+            strType: {             //title显示格式化支持 'Y*M*D* h*m*s' （*代表任意连字符）
+                type: String,
+                default: 'Y年M月'
+            },
+            unitText: {            //星期
                 type: Array,
                 default: function() {
                     return ['日', '一', '二', '三', '四', '五', '六']
@@ -72,28 +86,20 @@
         data() {
             return {
                 curDate: this.defaultDate,
-                dStart: this.startAndEndDate[0],
-                dEnd: this.startAndEndDate[1],
+                minDate: this.dateRange[0],
+                maxDate: this.dateRange[1],
+                dStart: this.firstTypeDate,
+                dEnd: this.secondTypeDate,
                 renderList: []
             }
         },
         created() {
             this._renderDayList()
         },
-        watch: {
-            startAndEndDate(newVal) {
-                this.dStart = newVal[0]
-                this.dEnd = newVal[1]
-                this._renderDayList()
-            },
-            defaultDate(newVal) {
-                this.curDate = newVal
-                this._renderDayList()
-            }
-        },
+        
         computed: {
             curDateStr() {
-                return dateUtil.formatDate(this.curDate, 'Y年M月')
+                return dateUtil.formatDate(this.curDate, this.strType)
             }
         },
         methods: {
@@ -107,7 +113,9 @@
                 }
                 //  获取下个月的日期
                 this.curDate = dateUtil.getAnotherMonth(this.curDate, -1)
+                this.$emit(EVENTS.PREV_MONTH, this.curDate)
                 this._renderDayList()
+               
             },
             _handleNextMonth() {
                 if(this.maxDate) {
@@ -119,6 +127,7 @@
                 }
                 //  获取上个月的日期
                 this.curDate = dateUtil.getAnotherMonth(this.curDate, 1)
+                this.$emit(EVENTS.NEXT_MONTH, this.curDate)
                 this._renderDayList()
             },
             _handleDateTitle() {
@@ -134,6 +143,26 @@
             },
             setDate(d) {
                 this.curDate = d
+                this._renderDayList()
+            }
+        },
+        watch: {
+            firstTypeDate: {
+                deep: true,
+                handler(newVal) {
+                    this.dStart = newVal
+                    this._renderDayList()
+                }
+            },
+            secondTypeDate: {
+                deep: true,
+                handler(newVal) {
+                    this.dEnd = newVal
+                    this._renderDayList()
+                }
+            },
+            defaultDate(newVal) {
+                this.curDate = newVal
                 this._renderDayList()
             }
         }
@@ -153,6 +182,7 @@
         position: relative;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
+        user-select: none;
     }
     .ncf-calendar .yearMonth {
         position: relative;
@@ -202,11 +232,16 @@
     }
     .ncf-calendar .days .day-item a{
         display: inline-block;
-        width: 46px;
         text-align: center;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
-        line-height: 3.3;
+        border-radius: 100%;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+    }
+    .ncf-calendar .days .day-item a:active{
+        -webkit-tap-highlight-color:transparent;
+        background: rgba(0,0,0,.3)
     }
     .ncf-calendar .days .day-item.notCurr {
         color: #c3c3c3;
@@ -215,21 +250,18 @@
     .ncf-calendar .days .day-item.end a,
     .ncf-calendar .days .day-item.start a{
         color: #fff;
-        background: #7dd4e1;
+        background: #fff;
         border-radius: 100%;
-        line-height: 2.3;
-        font-size: 20px;
-        transform: scale(0.7);
-        -webkit-transform: scale(0.7);
     }
     .ncf-calendar .days .day-item.today a{
         color: #ed6355;
-        line-height: 2.2;
-        background: #fff;
         border: 1px solid #ed6355;
     }
     .ncf-calendar .days .day-item.end a{
         background: #8786ec;
+    }
+    .ncf-calendar .days .day-item.start a{
+        background: #7dd4e1;
     }
     .border-bottom-1px:after{
         content: " ";
@@ -311,8 +343,8 @@
         }
         .ncf-calendar .days .day-item a{
             width: 46px;
-            line-height: 3.3;
-            font-size: 14px;
+            line-height: 2.3;
+            font-size: 20px;
         }
         .ncf-calendar .days .day-item.today a {
             line-height: 2.2;
