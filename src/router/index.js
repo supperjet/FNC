@@ -45,8 +45,9 @@ import noticeBar from '../examples/noticeBar-show.vue'
 import Dropdown from '../examples/dropdown/index.vue'
 import dropDemo1 from '../examples/dropdown/demo_1.vue'
 import dropDemo2 from '../examples/dropdown/demo_2.vue'
-import StepBar from '../components/stepBar.vue'
+// import StepBar from '../components/stepBar.vue'
 import Sticky from '../examples/stickyTop.vue'
+import Calendar from '../examples/calendar-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -300,15 +301,20 @@ export default new Router({
         }
       ]
     },
-    {
-      path: '/step',
-      name: 'StepBar',
-      component: StepBar
-    },
+    // {
+    //   path: '/step',
+    //   name: 'StepBar',
+    //   component: StepBar
+    // },
     {
       path: '/sticky',
       name: 'Sticky',
       component: Sticky
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      component: Calendar
     }
   ]
 })

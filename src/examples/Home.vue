@@ -40,9 +40,9 @@
         <router-link tag="div" class="tab-item" to="/card">
           <cell tip-show need-border-btm><span class="tab-link">card</span><span slot="tips">卡片</span></cell>
         </router-link>
-         <router-link tag="div" class="tab-item" to="/actionBar">
+        <!-- <router-link tag="div" class="tab-item" to="/actionBar">
           <cell tip-show need-border-btm><span class="tab-link">actionBar</span><span slot="tips">操作条</span></cell>
-        </router-link>
+        </router-link> -->
       </div>
     </panel>
     <br>
@@ -103,6 +103,9 @@
     <panel is-active>
       <h4 slot="title">小工具</h4>
       <div>
+        <router-link tag="div" class="tab-item" to="/calendar">
+          <cell tip-show need-border-btm><span class="tab-link">calendar</span><span slot="tips">日历</span></cell>
+        </router-link>
         <router-link tag="div" class="tab-item" to="/loading">
           <cell tip-show need-border-btm><span class="tab-link">loading</span><span slot="tips">加载</span></cell>
         </router-link>
@@ -112,9 +115,9 @@
          <router-link tag="div" class="tab-item" to="/noticeBar">
           <cell tip-show need-border-btm><span class="tab-link">noticeBar</span><span slot="tips">全局通知</span></cell>
         </router-link>
-        <router-link tag="div" class="tab-item" to="/step">
+        <!-- <router-link tag="div" class="tab-item" to="/step">
           <cell tip-show need-border-btm><span class="tab-link">stepBar</span><span slot="tips">步骤条</span></cell>
-        </router-link>
+        </router-link> -->
         <router-link tag="div" class="tab-item" to="/bulletin">
           <cell tip-show need-border-btm><span class="tab-link">bulletin</span><span slot="tips">公告</span></cell>
         </router-link>
