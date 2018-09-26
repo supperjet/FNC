@@ -284,7 +284,7 @@
         left: 20px;
         background-image: url(data:image/png;base64,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)
     }
-    @media screen and (max-width: 320px){
+    @media screen and (min-width: 320px){
         .ncf-calendar .yearMonth .title {
             font-size: 1rem;
         }
@@ -293,8 +293,8 @@
         }
         .ncf-calendar .days .day-item a{
             width: 40px;
-            line-height: 2.5;
-            font-size: 13px;
+            line-height: 2.2;
+            font-size: 18px;
         }
         .ncf-calendar .days .day-item.today a {
             line-height: 2.15;
@@ -309,7 +309,7 @@
             font-size: 18px;
         }
     }
-    @media screen and (max-width: 375px){
+    @media screen and (min-width: 325px) and (max-width: 375px){
         .ncf-calendar .yearMonth .title {
             font-size: 1.05rem;
         }
@@ -317,24 +317,24 @@
             font-size: 13px;
         }
         .ncf-calendar .days .day-item a{
-            width: 40px;
-            line-height: 3;
-            font-size: 14px;
+            width: 43px;
+            line-height: 2.2;
+            font-size: 20px;
         }
         .ncf-calendar .days .day-item.today a {
-            line-height: 1.9;
+            line-height: 2.05;
             font-size: 20px;
         }
         .ncf-calendar .days .day-item.start a {
-            line-height: 2.0;
+            line-height: 2.15;
             font-size: 20px;
         }
         .ncf-calendar .days .day-item.end a {
-            line-height: 2.0;
+            line-height: 2.15;
             font-size: 20px;
         }
     }
-    @media screen and (max-width: 414px){
+    @media screen and (min-width: 414px){
         .ncf-calendar .yearMonth .title {
             font-size: 1.1rem;
         }
