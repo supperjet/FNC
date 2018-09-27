@@ -122,8 +122,8 @@
     }
     .ncf-card .ncf-card-footer{
         position: relative;
-        padding: 8px 15px 8px 0;
-        font-size: 13px;
+        padding: 12px 15px;
+        font-size: 14px;
         color: #5c8ae5;
         text-align: center
     }

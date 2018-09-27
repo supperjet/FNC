@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    const COMPONENT_NAME = 'ncf-loading'
+    const COMPONENT_NAME = 'ncf-loading-icon'
     export default {
         name: COMPONENT_NAME,
         data() {
