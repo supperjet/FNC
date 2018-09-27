@@ -191,7 +191,7 @@
     }
     .ncf-calendar .yearMonth .title {
         font-size: 1.1rem;
-        letter-spacing: 1px;
+        font-weight: 500;
         color: #666;
     }
     .ncf-calendar .yearMonth .arrow {
@@ -296,16 +296,16 @@
             line-height: 2.2;
             font-size: 18px;
         }
-        .ncf-calendar .days .day-item.today a {
-            line-height: 2.15;
-            font-size: 18px;
-        }
         .ncf-calendar .days .day-item.start a {
             line-height: 2.25;
             font-size: 18px;
         }
         .ncf-calendar .days .day-item.end a {
             line-height: 2.25;
+            font-size: 18px;
+        }
+        .ncf-calendar .days .day-item.today a {
+            line-height: 2.15;
             font-size: 18px;
         }
     }
@@ -321,16 +321,16 @@
             line-height: 2.2;
             font-size: 20px;
         }
-        .ncf-calendar .days .day-item.today a {
-            line-height: 2.05;
-            font-size: 20px;
-        }
         .ncf-calendar .days .day-item.start a {
             line-height: 2.15;
             font-size: 20px;
         }
         .ncf-calendar .days .day-item.end a {
             line-height: 2.15;
+            font-size: 20px;
+        }
+        .ncf-calendar .days .day-item.today a {
+            line-height: 2.05;
             font-size: 20px;
         }
     }
@@ -346,16 +346,16 @@
             line-height: 2.3;
             font-size: 20px;
         }
-        .ncf-calendar .days .day-item.today a {
-            line-height: 2.2;
-            font-size: 20px;
-        }
         .ncf-calendar .days .day-item.start a {
             line-height: 2.3;
             font-size: 20px;
         }
         .ncf-calendar .days .day-item.end a {
             line-height: 2.3;
+            font-size: 20px;
+        }
+        .ncf-calendar .days .day-item.today a {
+            line-height: 2.2;
             font-size: 20px;
         }
     }
