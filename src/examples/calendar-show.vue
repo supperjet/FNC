@@ -17,7 +17,7 @@
             <ol>
                 <li>支持设置今天的文字（todayText）</li>
                 <li>设置最大和最小日期显示范围 (minDate, maxDate)</li>
-                <li>支持自定义设置图例</li>
+                <li>支持自定义设置图例legends</li>
                 <li>点击头部 和 日期 触发事件 ('date-time-change', 'day-item-change')</li>
             </ol>
         </small>
