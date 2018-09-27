@@ -73,48 +73,17 @@
     /**
      * 
      * @param {*} d  Date 当前日期
-     * @param {*} dStart String '2018/09/21' 开始日期
-     * @param {*} dEnd String '2018/10/20' 结束日期
+     * @param {*} legends Object 日期标识
      */
-    getRenderList(d, dStart, dEnd) {
-        const currList = this.getCurrMonthDaysList(d, dStart, dEnd);
-        const prevList = this.getPrevMonthLastDaysList(d, dStart, dEnd);
-        const nextList = this.getNextMonthFirstDaysList(d, dStart, dEnd);
+    getRenderListSP(d, legends) {
+        const currList = this.getCurrMonthDaysListSP(d,legends);
+        const prevList = this.getPrevMonthLastDaysList(d);
+        const nextList = this.getNextMonthFirstDaysList(d);
         return [...prevList, ...currList, ...nextList]
-    },
-    //获取当前月的渲染列表
-    getCurrMonthDaysList(d, dStart, dEnd) {
-        let arr = [];
-        let num = this.getDaysInMonth(d); //本月天数
-        let year = d.getFullYear();
-        let month = d.getMonth() + 1;
-        month = month < 10 ? `0${month}`: month;
-        let todayDate = this.formatDate(new Date(), 'Y/M/D');  //今日
-        for(let i=0; i<num; i++) {
-            let day = (i+1) < 10 ? `0${i+1}` : (i+1);
-            let _date = `${year}/${month}/${day}`;
-
-            let dayConfig = {
-                id: i+1,
-                date: _date,
-                isToday: todayDate == _date,
-                isCurrMonth: true,
-                isStart: false,
-                isEnd: false
-            }
-            if(dEnd.indexOf(_date) != -1) {
-                dayConfig.isEnd = true
-            }
-            if(dStart.indexOf(_date) != -1) {
-                dayConfig.isStart = true
-            }
-            arr.push(dayConfig)
-        }
-        return arr
     },
 
     //获取上个月的月末天数渲染列表
-    getPrevMonthLastDaysList(d, dStart, dEnd) {
+    getPrevMonthLastDaysList(d) {
         let arr = [];
         // 空余天数与星期几相对应
         let prevNum = this.getWeekInMonth(d);
@@ -131,15 +100,14 @@
                 date: _date,
                 isToday: false,
                 isCurrMonth: false,
-                isStart: false,
-                isEnd: false
+                color: "#C3C3C3"
             })
         }
         return arr;
     },
 
     //获取下个月的月初天数渲染列表
-    getNextMonthFirstDaysList(d, dStart, dEnd) {
+    getNextMonthFirstDaysList(d) {
         let arr = [];
         //天数+星期
         let num = this.getDaysInMonth(d) + this.getWeekInMonth(d);
@@ -154,10 +122,51 @@
                 date: _date,
                 isToday: false,
                 isCurrMonth: false,
-                isStart: false,
-                isEnd: false
+                color: '#C3C3C3'
             })
         }
         return arr;
+    },
+
+    getCurrMonthDaysListSP(d, legends) {
+        let arr = [];
+        let num = this.getDaysInMonth(d); //本月天数
+        let year = d.getFullYear();
+        let month = d.getMonth() + 1;
+            month = month < 10 ? `0${month}`: month;
+        let todayDate = this.formatDate(new Date(), 'Y/M/D');  //今日
+
+        //获取图例的属性值
+        let legendsName = Object.keys(legends);
+
+        for(let i=0; i<num; i++) {
+            let day = (i+1) < 10 ? `0${i+1}` : (i+1);
+            let _date = `${year}/${month}/${day}`;
+
+            let dayConfig = {
+                id: i+1,
+                date: _date,
+                isToday: todayDate == _date,
+                isCurrMonth: true,
+                color: '#333333'
+            }
+            
+            //映射 ‘legends’ 的属性值到 ‘dayConfig’ 上, 并判断当前日期是否存在改属性的值中
+            if(legendsName.length>0) {
+                legendsName.forEach((item) => {
+                    if(!dayConfig[item]) {
+                        if(legends[item]['dateArr'].indexOf(_date) != -1) {
+                            dayConfig[item] = true;
+                            dayConfig.bgColor = legends[item]['bgColor'];
+                            dayConfig.color = '#ffffff'
+                        }else{
+                            dayConfig[item] = false
+                        }
+                    }
+                })
+            }
+            arr.push(dayConfig)
+        }
+        return arr
     }
  }

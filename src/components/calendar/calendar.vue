@@ -15,14 +15,14 @@
                 <li class="day-item" 
                     v-for="(item, index) in renderList" :key="index"
                     @click="item.isCurrMonth && _handleDayItem(item)"
-                    :class="{
-                        'notCurr': !item.isCurrMonth, 
-                        'today': item.isToday, 
-                        'start': item.isStart,
-                        'end': item.isEnd
-                    }"
-                >
-                    <a>{{item.isToday ? todayText : item.id}}</a>
+                    :class="{'notCurr': !item.isCurrMonth, 'today': item.isToday}"
+                >   
+                    <template v-if="item.isToday">
+                        <a :style="currStyle">{{todayText}}</a>
+                    </template>
+                    <template v-else>
+                        <a :style="{ background: item.bgColor, color: item.color}">{{item.id}}</a>
+                    </template>
                 </li>
             </ul>
         </div>
@@ -56,18 +56,6 @@
                     return []
                 }
             },
-            firstTypeDate: {        //状态1
-                type: Array,
-                default: function() {
-                    return []
-                }
-            },
-            secondTypeDate: {       //状态2
-                type: Array,
-                default: function() {
-                    return []
-                }
-            },  
             todayText: {           //今日显示文字  
                 type: String,
                 default: '今'
@@ -81,6 +69,21 @@
                 default: function() {
                     return ['日', '一', '二', '三', '四', '五', '六']
                 }
+            },
+            currStyle: {            //今天的日期样式
+                type: Object,
+                default: function() {
+                    return {
+                        color: '#ed6355',
+                        border: '1px solid #ed6355'
+                    }
+                }
+            },
+            legends:{               //图例
+                type: Object,
+                default: function() {
+                    return {}
+                }
             }
         },
         data() {
@@ -88,8 +91,7 @@
                 curDate: this.defaultDate,
                 minDate: this.dateRange[0],
                 maxDate: this.dateRange[1],
-                dStart: this.firstTypeDate,
-                dEnd: this.secondTypeDate,
+                myLegends: this.legends,
                 renderList: []
             }
         },
@@ -138,7 +140,7 @@
             },
             _renderDayList() {
                 this.$nextTick(() => {
-                    this.renderList = dateUtil.getRenderList(this.curDate, this.dStart, this.dEnd)
+                    this.renderList = dateUtil.getRenderListSP(this.curDate, this.myLegends)
                 })
             },
             setDate(d) {
@@ -147,17 +149,10 @@
             }
         },
         watch: {
-            firstTypeDate: {
+            legends: {
                 deep: true,
                 handler(newVal) {
-                    this.dStart = newVal
-                    this._renderDayList()
-                }
-            },
-            secondTypeDate: {
-                deep: true,
-                handler(newVal) {
-                    this.dEnd = newVal
+                    this.myLegends = newVal
                     this._renderDayList()
                 }
             },
@@ -243,25 +238,10 @@
         -webkit-tap-highlight-color:transparent;
         background: rgba(0,0,0,.3)
     }
-    .ncf-calendar .days .day-item.notCurr {
-        color: #c3c3c3;
-    }
     .ncf-calendar .days .day-item.today a,
     .ncf-calendar .days .day-item.end a,
     .ncf-calendar .days .day-item.start a{
-        color: #fff;
-        background: #fff;
         border-radius: 100%;
-    }
-    .ncf-calendar .days .day-item.today a{
-        color: #ed6355;
-        border: 1px solid #ed6355;
-    }
-    .ncf-calendar .days .day-item.end a{
-        background: #8786ec;
-    }
-    .ncf-calendar .days .day-item.start a{
-        background: #7dd4e1;
     }
     .border-bottom-1px:after{
         content: " ";
@@ -293,14 +273,6 @@
         }
         .ncf-calendar .days .day-item a{
             width: 40px;
-            line-height: 2.2;
-            font-size: 18px;
-        }
-        .ncf-calendar .days .day-item.start a {
-            line-height: 2.25;
-            font-size: 18px;
-        }
-        .ncf-calendar .days .day-item.end a {
             line-height: 2.25;
             font-size: 18px;
         }
@@ -318,14 +290,6 @@
         }
         .ncf-calendar .days .day-item a{
             width: 43px;
-            line-height: 2.2;
-            font-size: 20px;
-        }
-        .ncf-calendar .days .day-item.start a {
-            line-height: 2.15;
-            font-size: 20px;
-        }
-        .ncf-calendar .days .day-item.end a {
             line-height: 2.15;
             font-size: 20px;
         }
@@ -343,14 +307,6 @@
         }
         .ncf-calendar .days .day-item a{
             width: 46px;
-            line-height: 2.3;
-            font-size: 20px;
-        }
-        .ncf-calendar .days .day-item.start a {
-            line-height: 2.3;
-            font-size: 20px;
-        }
-        .ncf-calendar .days .day-item.end a {
             line-height: 2.3;
             font-size: 20px;
         }
