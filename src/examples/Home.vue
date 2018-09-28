@@ -40,9 +40,6 @@
         <router-link tag="div" class="tab-item" to="/card">
           <cell tip-show need-border-btm><span class="tab-link">card</span><span slot="tips">卡片</span></cell>
         </router-link>
-        <!-- <router-link tag="div" class="tab-item" to="/actionBar">
-          <cell tip-show need-border-btm><span class="tab-link">actionBar</span><span slot="tips">操作条</span></cell>
-        </router-link> -->
       </div>
     </panel>
     <br>
@@ -103,6 +100,9 @@
     <panel is-active>
       <h4 slot="title">小工具</h4>
       <div>
+        <router-link tag="div" class="tab-item" to="/louver">
+          <cell tip-show need-border-btm><span class="tab-link">louver</span><span slot="tips">列表数据动态截取</span></cell>
+        </router-link>
         <router-link tag="div" class="tab-item" to="/calendar">
           <cell tip-show need-border-btm><span class="tab-link">calendar</span><span slot="tips">日历</span></cell>
         </router-link>
