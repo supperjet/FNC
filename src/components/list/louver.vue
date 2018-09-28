@@ -3,7 +3,6 @@
         <slot :data="renderData"></slot>
     </div>
 </template>
-
 <script>
     const COMPONENT_NAME = 'louver'
 
@@ -55,7 +54,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>
