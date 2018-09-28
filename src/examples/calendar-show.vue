@@ -46,9 +46,7 @@
             }
         },
         created() {
-            setTimeout(() => {
-                
-            }, 1000)
+          
         },
         methods: {
             changeDate() {
