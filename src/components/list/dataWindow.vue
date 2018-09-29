@@ -1,10 +1,10 @@
 <template>
-    <div class="ncf-louver">
+    <div class="ncf-data-window">
         <slot :data="renderData"></slot>
     </div>
 </template>
 <script>
-    const COMPONENT_NAME = 'louver'
+    const COMPONENT_NAME = 'data-window'
 
     export default {
         name: COMPONENT_NAME,
@@ -14,22 +14,18 @@
                 default: function() {
                     return []
                 }
-            },
-            start: {
-                type: Number,
-                default: 0
-            },
-            end: {
-                type: Number,
+            }, 
+            wind: {
+                type: Array,
                 default: function() {
-                    return this.dataList.length
+                    return [0, this.dataList.length]
                 }
             }
         },
         data() {
             return {
-                startPoint: this.start,
-                endPoint: this.end,
+                startPoint: this.wind[0],
+                endPoint: this.wind[1],
                 privData: this.dataList
             }
         },
@@ -45,11 +41,12 @@
                     this.privData = newVal
                 }
             },
-            start(newVal) {
-                this.startPoint = newVal
-            },
-            end(newVal) {
-                this.endPoint = newVal
+            wind: {
+                deep: true,
+                handler(newVal) {
+                    this.startPoint = newVal[0]
+                    this.endPoint = newVal[1]
+                }
             }
         }
     }

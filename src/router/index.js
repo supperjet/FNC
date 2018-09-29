@@ -48,7 +48,7 @@ import dropDemo2 from '../examples/dropdown/demo_2.vue'
 import StepBar from '../components/stepBar.vue'
 import Sticky from '../examples/stickyTop.vue'
 import Calendar from '../examples/calendar-show.vue'
-import louver from '../examples/louver-show.vue'
+import louver from '../examples/dataWindow-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'

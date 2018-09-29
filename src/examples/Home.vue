@@ -101,7 +101,7 @@
       <h4 slot="title">小工具</h4>
       <div>
         <router-link tag="div" class="tab-item" to="/louver">
-          <cell tip-show need-border-btm><span class="tab-link">louver</span><span slot="tips">列表数据动态截取</span></cell>
+          <cell tip-show need-border-btm><span class="tab-link">DataWindow</span><span slot="tips">数据窗</span></cell>
         </router-link>
         <router-link tag="div" class="tab-item" to="/calendar">
           <cell tip-show need-border-btm><span class="tab-link">calendar</span><span slot="tips">日历</span></cell>
