@@ -1,6 +1,5 @@
 <template>
     <div class="layout">
-        <h2>下划线可滚动（tabNavBarMove）</h2>
         <tab-nav-bar-move
             :tab-items="tabItems"
             @tab-item-click="switchPage_v"
@@ -9,19 +8,34 @@
         <p>linePadding:指定下划线两侧的padding</p>
         <tab-nav-bar-move
             :tab-items="tabItems"
-            :line-pading="14"
+            :line-pading="25"
             @tab-item-click="switchPage_v"
         ></tab-nav-bar-move>
         <br>
         <p>activeItem:设置默认激活项</p>
         <tab-nav-bar-move
             :tab-items="tabItems"
-            :line-pading="14"
-            :active-item="activeItem"
+            :line-pading="30"
+            active-item="2"
             @tab-item-click="switchPage_v"
         ></tab-nav-bar-move>
         <br>
-        <h2>下划线不可滚动（tab-bar）</h2>
+        <p>设置下划线的颜色</p>
+        <tab-nav-bar-move
+            :tab-items="tabItems"
+            :line-pading="30"
+            active-item="2"
+            line-color="#40f"
+            @tab-item-click="switchPage_v"
+        ></tab-nav-bar-move>
+        <br>
+        <p>设置禁用 (数据中加入disabled属性)</p>
+        <tab-nav-bar-move :tab-items="tabItems2"></tab-nav-bar-move>
+        <br>
+        <br>
+        <p>滑动的下划线支持传入线条的颜色，文字会保持与线条的颜色一致</p>
+        <br>
+        <!-- <h2>下划线不可滚动（tab-bar）</h2>
         <tab-nav-bar 
             :tab-items="tabItems"
             @tab-item-click="switchPage_v"
@@ -60,7 +74,7 @@
             :tab-items="tabItems"
             :active-item="1"
         >
-        </tab-nav-bar>
+        </tab-nav-bar> -->
         <br>
         <p>数据形式</p>
         <pre>
@@ -90,7 +104,6 @@
     export default{
         data(){
             return {
-                activeItem: 2,
                 tabItems:['买入', '卖出', '收益', '提现'],
                 tabItems2:['买入', {name:'卖出', disabled:true}, '收益','提现']
             }

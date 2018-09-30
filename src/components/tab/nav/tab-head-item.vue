@@ -1,11 +1,15 @@
 <template>
     <a class="ncf-tab-item flex flex-1 flex-h flex-align-center flex-pack-center"
        :class="{ 
-            'selected': $parent.activeItem === index , 
+            'selected': $parent.activeItem == index, 
             'disabled': disabled, 
             'noline': !underline
         }"
-       :style="{'margin-left': lw+'px', 'margin-right': lw+'px'}"
+       :style="{
+            'margin-left': lw+'px', 
+            'margin-right': lw+'px', 
+            'color': $parent.activeItem==index?color:(disabled?'#d0d0d0':'#333'),
+        }"
        @click="!disabled && handleTabClick(index)"
     >
        <div class="ncf-tab-item-label">
@@ -36,6 +40,10 @@
             lw: {
                 type: Number | String,
                 default: 0
+            },
+            color: {
+                type: String,
+                default: '#ed4e39'
             }
         },
         methods: {
@@ -52,13 +60,12 @@
 
     .ncf-tab-item {
         position: relative;
-        padding: 15px 0px;
+        padding: 14px 0px;
         margin: 0 0;
         text-decoration: none;
         text-align: center;
-        color: #333;
-        font-size: 14px;
-        transition: opacity 0.5s;
+        color: #666;
+        font-size: 16px;
     }
     .ncf-tab-item .ncf-tab-item-icon{
         margin-right: 5px;
@@ -66,9 +73,6 @@
     .ncf-tab-item .ncf-tab-item-label{
         line-height: 1;
         letter-spacing: 0.05rem;
-    }
-    .ncf-tab-item.selected{
-        color:#ed4e39;
     }
     .ncf-tab-item.selected::after{
         position: absolute;
@@ -85,7 +89,6 @@
         display: none;
     }
     .ncf-tab-item.disabled{
-        color: #d0d0d0;
         background: #eee;
     }
 </style>
