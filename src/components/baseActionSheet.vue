@@ -84,11 +84,13 @@ export default {
   }
   .ncf-action-sheet-move-enter,
   .ncf-action-sheet-move-leave-active{
-      transform: translate3d(0, 100%, 0)
+      transform: translate3d(0, 100%, 0);
+      -webkit-transform: translate3d(0, 100%, 0);
   }
   .ncf-action-sheet-move-enter-active,
   .ncf-action-sheet-move-leave-active{
-      transition: all .4s;
+      transition: transform .4s;
+      -webkit-transition: transform .4s;
   }
   .ncf-action-sheet-header{
       position: relative;
@@ -116,8 +118,8 @@ export default {
   }
   .ncf-action-sheet-header .header-cancel{
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;

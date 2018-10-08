@@ -52,49 +52,55 @@ export default {
 };
 </script>
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-.ncf-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-}
-.ncf-popup-mask,
-.ncf-popup-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.ncf-popup-mask {
-  background-color: rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-.ncf-popup-container {
-  transform: translate3d(100%, 100%, 0);
-}
-.ncf-popup-content {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  box-sizing: border-box;
-  transform: translate3d(-100%, -100%, 0);
-}
-.ncf-popup-center .ncf-popup-content {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  max-width: 100%;
-  box-sizing: border-box;
-  transform: translate3d(-50%, -50%, 0);
-}
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+  .ncf-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+  .ncf-popup-mask,
+  .ncf-popup-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .ncf-popup-mask {
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  .ncf-popup-container {
+    transform: translate3d(100%, 100%, 0);
+    -webkit-transform: translate3d(100%, 100%, 0);
+  }
+  .ncf-popup-content {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transform: translate3d(-100%, -100%, 0);
+    -webkit-transform: translate3d(-100%, -100%, 0);
+  }
+  .ncf-popup-center .ncf-popup-content {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+  }
 </style>
