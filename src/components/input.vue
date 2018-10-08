@@ -115,7 +115,8 @@ export default {
   data() {
     return{
       inputValue: this.value,
-      isFocus: false
+      isFocus: false,
+      showClose: this.clearable
     }
   },
   computed: {
@@ -124,7 +125,7 @@ export default {
       return type;
     },
     _showClear() {
-      return this.clearable && this.inputValue && !this.readonly && !this.disabled
+      return this.showClose && this.inputValue && !this.readonly && !this.disabled
     }
   },
   watch: {
@@ -178,10 +179,12 @@ export default {
     handleFocus(e) {
       this.$emit(EVENTS.FOCUS, e)
       this.isFocus = true
+      this.showClose = true
     },
     handleBlur(e) {
       this.$emit(EVENTS.BLUR, e)
       this.isFocus = false
+      this.showClose = false
     },
     handleClear(e) {
       this.inputValue = ''
@@ -195,59 +198,60 @@ export default {
 }
 </script>
 <style scoped>
-@import '../common/common.css';
+  @import '../common/common.css';
 
-.ncf-input {
-  width: 100%;
-  position: relative;
-  font-size: 0;
-}
-.ncf-input-field::-webkit-input-placeholder {
-  color: #d8d8d8;
-  font-size: 16px;
-  line-height: 1.5;
-}
-.ncf-input-prepend {
-  font-size: 14px;
-}
-.ncf-input-field {
-  border: none;
-  outline: none;
-  width: 10.5rem;
-  line-height: 1.429;
-  height: 50px;
-  font-size: 32px;
-  outline: none;
-  padding-left: 10px;
-  border-radius: 4px;
-  -webkit-apperance: none;
-  color: #333;
-}
-.ncf-input-field.normal {
-  border: none;
-  outline: none;
-  width: 10.5rem;
-  line-height: 1.429;
-  height: 25px;
-  font-size: 16px;
-  outline: none;
-  padding-left: 10px;
-  border-radius: 4px;
-  -webkit-apperance: none;
-  color: #333;
-}
-.ncf-input-field:disabled {
-  background-color: #eee;
-}
-.ncf-inout-clear {
-  width: 18px;
-  height: 18px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAAGXcA1uAAAAAXNSR0IArs4c6QAAAtRJREFUSA3NlT1vE0EQhn1nByigQUEKkdIARaABbIs+oggVAiT6/AWKIIqUFIj8B+QeCRA0VNBQ2pZocJAwEgQRCq6CIh/Y5nmXndGec3IHYqW9+Xpndmb242q1qtHr9c4HvZjJZJKVQFm3252YJjcGOgw48Dl+IzO02+0soEwphYwK45GTmEMA58z7EHVXs2RZttlqte7mhLiNsIehyPP8EomsC9RA+QjhKPTKeDx+ZZ45ypMoP0HfojxwAxlIuBMVC5ayp2tIrQl/nyiLRHkOvxadA8Qdkvp+YWkE65/PDuQ0AW5RxdPQKcDvE8B3La+KAF0QWDZWeyJqG9CVoAHwGgGWqfQlEQeoimCIH0+J/XhIlNCjFGC8FW3y36OekpYg9zlIh2Kvk95X+A1SeSybDXeYVQPF1wkyllNwAHwzti303KJBfU+s6NBW6zFRrqr/0aEANIduXzLp6gT4PojX5ryj/3tyAjwPaAfdkWDkuIimRyDqa2+azeZ8v9+/iPOCKaFhx22nTa80QmRbyQzQF+LNYSiBbpxSGrCKPJAT9DNTY00fbytAv+EypIPCw32Tzh0k4PQBcla8DcDhWJv8/9FSCWl68bRsoiuVlGIiP6TMdd3eClu5RwLMOrNVAVJd2nzT2zaHm6NN4KTZpd4mq0a9Xr8MuPQKROdCNmGQt6WTr2IwdQvD8AWQOsy0HUtU82U0Gu3qMMY7ooXCCyydbMKgW2LaUIyOCb4HAH+QwXEzTNFvyCsE3ZKeDJchr5npVZEpDFr1k8pOSPAKCK4HpWoUOKwquAJritdjCriqdWqVx/IFAG9MRT+wVwCHfQLrCupVHojXNVSbYuv8FxRjeCxvkQy0yR6yiKt9hFlkHjPFFN1FVrZnTE+1pZtZWkAgss15ih5A7TSZ70yqI8ozdg8anl4DH1rADKK0QsftRpxtnFWN9Vg/t2eatGq6RYL9m/EbEnFWXJN2UdgAAAAASUVORK5CYII=);
-}
-.ncf-input-append {
-  position: absolute;
-}
+  .ncf-input {
+    width: 100%;
+    position: relative;
+    font-size: 0;
+  }
+  .ncf-input-field::-webkit-input-placeholder {
+    color: #d8d8d8;
+    font-size: 16px;
+    line-height: 1.5;
+    /* vertical-align: middle; */
+  }
+  .ncf-input-prepend {
+    font-size: 14px;
+  }
+  .ncf-input-field {
+    border: none;
+    outline: none;
+    width: 10.5rem;
+    line-height: 1.429;
+    height: 50px;
+    font-size: 32px;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 4px;
+    -webkit-apperance: none;
+    color: #333;
+  }
+  .ncf-input-field.normal {
+    border: none;
+    outline: none;
+    width: 10.5rem;
+    line-height: 1.429;
+    height: 25px;
+    font-size: 16px;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 4px;
+    -webkit-apperance: none;
+    color: #333;
+  }
+  .ncf-input-field:disabled {
+    background-color: #eee;
+  }
+  .ncf-inout-clear {
+    width: 18px;
+    height: 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAAGXcA1uAAAAAXNSR0IArs4c6QAAAtRJREFUSA3NlT1vE0EQhn1nByigQUEKkdIARaABbIs+oggVAiT6/AWKIIqUFIj8B+QeCRA0VNBQ2pZocJAwEgQRCq6CIh/Y5nmXndGec3IHYqW9+Xpndmb242q1qtHr9c4HvZjJZJKVQFm3252YJjcGOgw48Dl+IzO02+0soEwphYwK45GTmEMA58z7EHVXs2RZttlqte7mhLiNsIehyPP8EomsC9RA+QjhKPTKeDx+ZZ45ypMoP0HfojxwAxlIuBMVC5ayp2tIrQl/nyiLRHkOvxadA8Qdkvp+YWkE65/PDuQ0AW5RxdPQKcDvE8B3La+KAF0QWDZWeyJqG9CVoAHwGgGWqfQlEQeoimCIH0+J/XhIlNCjFGC8FW3y36OekpYg9zlIh2Kvk95X+A1SeSybDXeYVQPF1wkyllNwAHwzti303KJBfU+s6NBW6zFRrqr/0aEANIduXzLp6gT4PojX5ryj/3tyAjwPaAfdkWDkuIimRyDqa2+azeZ8v9+/iPOCKaFhx22nTa80QmRbyQzQF+LNYSiBbpxSGrCKPJAT9DNTY00fbytAv+EypIPCw32Tzh0k4PQBcla8DcDhWJv8/9FSCWl68bRsoiuVlGIiP6TMdd3eClu5RwLMOrNVAVJd2nzT2zaHm6NN4KTZpd4mq0a9Xr8MuPQKROdCNmGQt6WTr2IwdQvD8AWQOsy0HUtU82U0Gu3qMMY7ooXCCyydbMKgW2LaUIyOCb4HAH+QwXEzTNFvyCsE3ZKeDJchr5npVZEpDFr1k8pOSPAKCK4HpWoUOKwquAJritdjCriqdWqVx/IFAG9MRT+wVwCHfQLrCupVHojXNVSbYuv8FxRjeCxvkQy0yR6yiKt9hFlkHjPFFN1FVrZnTE+1pZtZWkAgss15ih5A7TSZ70yqI8ozdg8anl4DH1rADKK0QsftRpxtnFWN9Vg/t2eatGq6RYL9m/EbEnFWXJN2UdgAAAAASUVORK5CYII=);
+  }
+  .ncf-input-append {
+    position: absolute;
+  }
 </style>
