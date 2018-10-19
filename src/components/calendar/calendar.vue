@@ -38,7 +38,9 @@
         NEXT_MONTH: 'next-month',
         PREV_MONTH: 'prev-month',
         DATE_TIME_CHANGE: 'date-time-change',
-        DAY_ITEM_CHANGE: 'day-item-change'
+        DAY_ITEM_CHANGE: 'day-item-change',
+        PREV_LIMIT: 'prev-limit',
+        NEXT_LIMIT: 'next-limit'
     }
 
     export default {
@@ -109,7 +111,8 @@
                 if(this.minDate) {
                    let minTime = dateUtil.getAnotherMonth(this.minDate, 1)
                    let currTime = this.curDate.getTime()
-                   if (currTime <= minTime) {
+                   if (currTime < minTime) {
+                       this.$emit(EVENTS.PREV_LIMIT, this.minDate)
                        return
                    }
                 }
@@ -124,6 +127,7 @@
                    let maxTime = this.maxDate.getTime()
                    let currTime = this.curDate.getTime()
                    if (currTime >= maxTime) {
+                       this.$emit(EVENTS.NEXT_LIMIT, this.maxDate)
                        return
                    }
                 }
