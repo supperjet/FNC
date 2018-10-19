@@ -64,7 +64,7 @@ export default {
   -webkit-transform: translate(-50%, -50%);
 }
 .ncf-toast-container.btm {
-  top: 80%;
+  top: 90%;
 }
 .ncf-toast-tip {
   font-size: 12px;
