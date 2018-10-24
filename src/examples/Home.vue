@@ -80,7 +80,7 @@
       <h4 slot="title">原生类</h4>
       <div>
         <router-link tag="div" class="tab-item" to="/input">
-          <cell tip-show need-border-btm><span class="tab-link">input</span><span slot="tips">输入</span></cell>
+            <cell tip-show need-border-btm><span class="tab-link">input</span><span slot="tips">输入</span></cell>
         </router-link>
         <router-link tag="div" class="tab-item" to="/button">
           <cell tip-show need-border-btm><span class="tab-link">button</span><span slot="tips">按钮</span></cell>
@@ -92,6 +92,28 @@
           <cell tip-show need-border-btm><span class="tab-link">radio</span><span slot="tips">单选</span></cell>
         </router-link>
       </div>
+    </panel>
+    <br>
+    <panel is-active>
+      <h4 slot="title">金融专用</h4>
+      <router-link tag="div" class="tab-item" to="/moneyInput">
+        <cell tip-show need-border-btm><span class="tab-link">amount</span><span slot="tips">金额输入</span></cell>
+      </router-link>
+      <router-link tag="div" class="tab-item" to="/banklist">
+        <cell tip-show need-border-btm><span class="tab-link">banklist</span><span slot="tips">银行列表选择</span></cell>
+      </router-link>
+      <router-link tag="div" class="tab-item" to="/number">
+        <cell tip-show need-border-btm><span class="tab-link">number</span><span slot="tips">数字</span></cell>
+      </router-link>
+      <router-link tag="div" class="tab-item" to="/keyboard">
+        <cell tip-show need-border-btm><span class="tab-link">keyboard</span><span slot="tips">键盘</span></cell>
+      </router-link>
+      <router-link tag="div" class="tab-item" to="/codebox">
+        <cell tip-show need-border-btm><span class="tab-link">codebox</span><span slot="tips">密码框</span></cell>
+      </router-link>
+      <router-link tag="div" class="tab-item" to="/price">
+        <cell tip-show need-border-btm><span class="tab-link">price</span><span slot="tips">价格拖动选择</span></cell>
+      </router-link>
     </panel>
     <br>
     <panel is-active>
@@ -115,9 +137,6 @@
         <router-link tag="div" class="tab-item" to="/sticky">
           <cell tip-show need-border-btm><span class="tab-link">sticky</span><span slot="tips">吸顶工具</span></cell>
         </router-link>
-        <router-link tag="div" class="tab-item" to="/slidenews">
-          <cell tip-show need-border-btm><span class="tab-link">scrollNews</span><span slot="tips">滚动新闻</span></cell>
-        </router-link>
         <!-- <router-link tag="div" class="tab-item" to="/step">
           <cell tip-show need-border-btm><span class="tab-link">stepBar</span><span slot="tips">步骤条</span></cell>
         </router-link> -->
@@ -135,8 +154,8 @@
         </router-link>
       </div>
     </panel>
-
     
+    <h2></h2>
    
     <!-- <router-link tag="div" class="tab-item" to="/upload">
       <span class="tab-link">upload</span>

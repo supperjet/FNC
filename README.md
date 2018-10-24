@@ -76,7 +76,7 @@ npm run build --report
 | codebox | 密码框 | 已完成 |
 | amount | 金额输入 | 已完成 |
 | banklist | 银行列表 | 已完成 |
-| price | 价格拖动选择 | 完善中 |
+| price | 金额拖动选择 | 已完成 |
 
 ### 7、小工具
 | 名称 | 功能描述 | 状态 |

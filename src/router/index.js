@@ -49,6 +49,7 @@ import StepBar from '../components/stepBar.vue'
 import Sticky from '../examples/stickyTop.vue'
 import Calendar from '../examples/calendar-show.vue'
 import louver from '../examples/dataWindow-show.vue'
+import price from '../examples/price-show.vue'
 // 业务
 import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
@@ -321,6 +322,11 @@ export default new Router({
       path: '/louver',
       name: 'louver',
       component: louver
+    },
+    {
+      path: '/price',
+      name: 'price',
+      component: price
     }
   ]
 })
