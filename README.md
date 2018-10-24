@@ -58,12 +58,12 @@ npm run build --report
 | tab | tab 切换 | 已完成 |
 | slide | 默认幻灯片效果，可自定义内容 | 已完成 |
 | scroll | 上拉加载， 下拉刷新 | 已完成 |
-| sticky | 吸顶工具 | 已完成 |
+
 
 ### 5、原生类
 | 名称 | 功能描述 | 状态 |
 | ------ | ------ | ------ |
-| input | 封装原生的input, 支持格式化手机，银行卡，电话等，自带关闭按钮，方便设置禁用，只读，disabled等模式 | 已完成 |
+| input | 封装原生的input, 支持格式化手机，银行卡，电话等，自带关闭按钮 | 已完成 |
 | button | 按钮，支持请求模式，disable等模式，具体功能看demo | 已完成 |
 | checkbox | 多选框 | 已完成 |
 | raido | 单选框 | 已完成 |
@@ -91,5 +91,6 @@ npm run build --report
 | tip | 气泡提示 | 已完成 |
 | progressBar | 进度条 | 已完成 |
 | badge | 徽章 | 已完成 |
+| sticky | 吸顶工具 | 已完成 |
 
 
