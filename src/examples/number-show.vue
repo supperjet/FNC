@@ -12,6 +12,11 @@
         <br>
             <ncf-number :value="10089612.16" is-separator></ncf-number>
         <br>
+        <small>使用隐藏显示</small>
+        <br>
+            <ncf-number :value="10089612.16" is-show-hide-chart></ncf-number>
+            <ncf-number :value="10089612.16" is-show-hide-chart hide-chart="?"></ncf-number>
+        <br>
         <small>动画</small>
         <br>
             <ncf-number 

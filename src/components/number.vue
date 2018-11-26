@@ -1,6 +1,6 @@
 <template>
   <span class="ncf-number">
-      {{ formatValue | doPrecision(precision, isRoundUp) | doFormat(isSeparator) | doPercent(isPercent)}}
+      {{ formatValue | doPrecision(precision, isRoundUp) | doFormat(isSeparator) | doPercent(isPercent) | doHideChart(isShowHideChart, hideChart, hideChartLen)}}
   </span>
 </template>
 <script>
@@ -38,6 +38,18 @@
             duration: {
                 type: Number,
                 default: 1000,
+            },
+            isShowHideChart: {
+                type: Boolean,
+                default: false
+            },
+            hideChart: {
+                type: String,
+                default: '*'
+            },
+            hideChartLen: {
+                type: Number,
+                default: 6
             }
         },
         data() {
@@ -79,6 +91,10 @@
             doPercent(value, isPercent) {
                 if(!isPercent) return value;
                 return `${value}%`
+            },
+            doHideChart(value, isShowHideChart, hideChart, hideChartLen) {
+                if(!isShowHideChart) return value;
+                return `${hideChart}`.repeat(hideChartLen)
             }
         }
     }
