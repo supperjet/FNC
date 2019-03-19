@@ -4,7 +4,7 @@ import Home from '../examples/Home.vue'
 import PopupShow from '../examples/popup-show.vue'
 import CellShow from '../examples/cell-show.vue'
 import BaseActionSheetShow from '../examples/BaseActionSheet-show.vue'
-import TransParentShow from '../examples/transParent-show.vue'
+import TransitionsShow from '../examples/transitions-show.vue'
 import TransShow from '../examples/trans-show.vue'
 import cardShow from '../examples/card-show.vue'
 import PanelShow from '../examples/panel-show.vue'
@@ -16,7 +16,7 @@ import TabBarShow from '../examples/tabBar-show.vue'
 import DialogShow from '../examples/dialog-show.vue'
 import UploadShow from '../examples/upload-show.vue'
 import InputShow from '../examples/input-show.vue'
-import Sketeon from '../components/skeletion.vue'
+import ScrollView from '../examples/scrollView-show.vue'
 import BulletinShow from '../examples/bulletin-show.vue'
 import SlideShow from '../examples/slide-show.vue'
 import ProgressBar from '../examples/progressbar-show.vue'
@@ -45,7 +45,6 @@ import noticeBar from '../examples/noticeBar-show.vue'
 import Dropdown from '../examples/dropdown/index.vue'
 import dropDemo1 from '../examples/dropdown/demo_1.vue'
 import dropDemo2 from '../examples/dropdown/demo_2.vue'
-// import StepBar from '../components/stepBar.vue'
 import Sticky from '../examples/stickyTop.vue'
 import Calendar from '../examples/calendar-show.vue'
 import louver from '../examples/dataWindow-show.vue'
@@ -55,6 +54,7 @@ import Amount from '../examples/amount.vue'
 import SlideNews from '../examples/slide-news.vue'
 import BankList from '../examples/bankList-show.vue'
 import Filed from '../examples/filed.vue'
+
 
 Vue.use(Router)
 
@@ -81,15 +81,9 @@ export default new Router({
       component: BaseActionSheetShow
     },
     {
-      path: '/transparent',
-      name: 'TransParentShow',
-      component: TransParentShow,
-      children: [
-        {
-          path: 'trans',
-          component: TransShow
-        }
-      ]
+      path: '/transitons',
+      name: 'transitons',
+      component: TransitionsShow,
     },
     {
       path: '/card',
@@ -135,11 +129,6 @@ export default new Router({
       path: '/moneyInput',
       name: 'Amount',
       component: Amount
-    },
-    {
-      path: '/sketeon',
-      name: 'Sketeon',
-      component: Sketeon
     },
     {
       path: '/bulletin',
@@ -303,11 +292,11 @@ export default new Router({
         }
       ]
     },
-    // {
-    //   path: '/step',
-    //   name: 'StepBar',
-    //   component: StepBar
-    // },
+    {
+      path: '/scrollview',
+      name: 'ScrollView',
+      component: ScrollView
+    },
     {
       path: '/sticky',
       name: 'Sticky',

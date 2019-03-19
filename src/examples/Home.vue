@@ -49,8 +49,8 @@
         <router-link tag="div" class="tab-item" to="/flex">
           <cell tip-show need-border-btm><span class="tab-link">flex</span><span slot="tips">上下滑动的弹性动画</span></cell>
         </router-link>
-        <router-link tag="div" class="tab-item" to="/transparent">
-          <cell tip-show need-border-btm><span class="tab-link">trans</span><span slot="tips">侧滑</span></cell>
+        <router-link tag="div" class="tab-item" to="/transitons">
+          <cell tip-show need-border-btm><span class="tab-link">transitons</span><span slot="tips">过渡效果</span></cell>
         </router-link>
       </div>
     </panel>
@@ -72,6 +72,9 @@
         </router-link>
         <router-link tag="div" class="tab-item" to="/scroll">
           <cell tip-show need-border-btm><span class="tab-link">scroll</span><span slot="tips">上拉加载下拉刷新</span></cell>
+        </router-link>
+        <router-link tag="div" class="tab-item" to="/scrollview">
+          <cell tip-show need-border-btm><span class="tab-link">scrollview</span><span slot="tips">滚动视图</span></cell>
         </router-link>
       </div>
     </panel>
